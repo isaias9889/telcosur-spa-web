@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <!-- Configuración base -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO principal -->
+  <title>TelcoSur SPA | Internet Fibra, TV y Oportunidades Comerciales</title>
+  <meta name="description" content="TelcoSur SPA - Internet fibra, TV y streaming con atención cercana. Consulta planes para tu hogar o postula como vendedor y genera ingresos.">
+  <meta name="keywords" content="TelcoSur SPA, internet fibra, planes internet, televisión hogar, streaming, telecomunicaciones, vendedores telecomunicaciones, fibra optica">
+  <meta name="author" content="TelcoSur SPA">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#005dff">
+  <link rel="canonical" href="https://telcosurspa.cl/">
+
+  <!-- Favicon e identidad -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:site_name" content="TelcoSur SPA">
+  <meta property="og:title" content="TelcoSur SPA | Internet Fibra, TV y Oportunidades Comerciales">
+  <meta property="og:description" content="Internet fibra óptica con atención cercana y oportunidades comerciales.">
+  <meta property="og:url" content="https://telcosurspa.cl/">
+  <meta property="og:image" content="https://telcosurspa.cl/assets/fibra.png">
+  <meta property="og:image:alt" content="Servicio de fibra óptica para hogares con TelcoSur SPA">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TelcoSur SPA | Internet Fibra, TV y Oportunidades Comerciales">
+  <meta name="twitter:description" content="Internet fibra óptica con atención cercana y oportunidades comerciales.">
+  <meta name="twitter:image" content="https://telcosurspa.cl/assets/fibra.png">
+
+  <!-- Rendimiento -->
+  <link rel="preload" href="assets/logo.png" as="image">
+  <link rel="preload" href="assets/fibra.png" as="image">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Mejoras visuales compatibles con el CSS actual -->
+  <style>
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      z-index: 100;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: #005dff;
+      color: #ffffff;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+    }
+
+    .hero-proof {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 0 0 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-proof li {
+      padding: 9px 13px;
+      border: 1px solid #dbe7f7;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.84);
+      color: #071a3d;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
+      .hero-proof {
+        justify-content: center;
+      }
+    }
+
+    .commercial-steps {
+      padding: 54px 7% 60px;
+      background: #ffffff;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      min-height: 220px;
+      padding: 28px;
+      border: 1px solid #e2eaf5;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 14px 38px rgba(0, 34, 80, 0.08);
+    }
+
+    .step-card strong {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 18px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #005dff, #00aeef);
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .step-card h3 {
+      color: #071a3d;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      color: #526075;
+      line-height: 1.55;
+    }
+
+    .work-note {
+      max-width: 920px;
+      margin: 30px auto 0;
+      padding: 26px 30px;
+      border-radius: 18px;
+      background: #f6f9ff;
+      border: 1px solid #e2eaf5;
+      text-align: center;
+    }
+
+    .work-note h3 {
+      color: #071a3d;
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .work-note p {
+      color: #526075;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+
+  <!-- Schema.org: empresa local -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "TelcoSur SPA",
+      "url": "https://telcosurspa.cl/",
+      "logo": "https://telcosurspa.cl/assets/logo.png",
+      "image": "https://telcosurspa.cl/assets/fibra.png",
+      "description": "Empresa de telecomunicaciones que asesora en planes de internet, TV y entretenimiento, además de oportunidades comerciales para vendedores.",
+      "telephone": "+56 9 6371 9919",
+      "areaServed": [
+        "Sur de Chile",
+        "Región de Los Lagos",
+        "Región de Los Ríos",
+        "Región de La Araucanía"
+      ],
+      "sameAs": [
+        "https://wa.me/56963719919"
+      ],
+      "priceRange": "$$",
+      "knowsAbout": [
+        "Internet fibra óptica",
+        "Televisión hogar",
+        "Streaming",
+        "Ventas de telecomunicaciones"
+      ]
+    }
+  </script>
+
+  <!-- Schema.org: preguntas frecuentes -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo confirmo si puedo contratar internet o TV?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puedes escribir a TelcoSur SPA por WhatsApp indicando tu comuna, calle y numeración. Un asesor revisará la factibilidad técnica y te orientará con las opciones disponibles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los precios publicados son definitivos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los precios son referenciales y pueden variar según cobertura, disponibilidad técnica y condiciones comerciales vigentes al momento de contratar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo trabajar vendiendo con TelcoSur SPA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. TelcoSur SPA recibe postulaciones de vendedores interesados en comercializar servicios de telecomunicaciones con capacitación, acompañamiento y modalidad flexible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué datos necesito para consultar cobertura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para revisar cobertura se recomienda enviar comuna, dirección completa, numeración y un teléfono de contacto."
+          }
+        }
+      ]
+    }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="header">
+    <a class="logo" href="#inicio" aria-label="Ir al inicio de TelcoSur SPA">
+      <img src="assets/logo.png" alt="Logo de TelcoSur SPA" width="82" height="82">
+    </a>
+
+    <nav class="navbar" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#planes">Planes</a>
+      <a href="#vende">Vende con nosotros</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="#preguntas">Preguntas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <a href="#" class="btn-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera recibir información sobre sus servicios.">WhatsApp</a>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero anchor-section">
+      <div class="hero-text">
+        <span class="badge">TelcoSur SPA - Conectando hacia el futuro de Chile</span>
+
+        <h1>Internet, TV y oportunidades comerciales con atención cercana</h1>
+
+        <p>
+          En TelcoSur SPA te ayudamos a encontrar el plan de internet, TV o entretenimiento que mejor calza con tu hogar, tu cobertura y tu presupuesto.
+        </p>
+
+        <p>
+          También abrimos oportunidades para vendedores que quieran generar ingresos ofreciendo servicios de telecomunicaciones con respaldo, capacitación y acompañamiento.
+        </p>
+
+        <ul class="hero-proof" aria-label="Beneficios destacados de TelcoSur SPA">
+          <li>Revisión de cobertura por dirección</li>
+          <li>Asesoría clara antes de contratar</li>
+          <li>Postulación rápida para vendedores</li>
+        </ul>
+
+        <div class="hero-buttons">
+          <a href="#planes" class="btn-primary">Ver planes hogar</a>
+          <a href="#vende" class="btn-secondary">Quiero vender</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="assets/fibra.png" alt="Persona recibiendo asesoría en línea para internet, TV y oportunidades comerciales de TelcoSur SPA" width="760" height="410">
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Indicadores de confianza">
+      <article>
+        <strong>Telecomunicaciones</strong>
+        <span>Servicios para hogares conectados</span>
+      </article>
+      <article>
+        <strong>Instalación Rápida</strong>
+        <span>Según factibilidad técnica</span>
+      </article>
+      <article>
+        <strong>Atención Personalizada</strong>
+        <span>Por WhatsApp</span>
+      </article>
+    </section>
+
+    <section class="benefits" aria-label="Beneficios principales">
+      <article class="benefit-card">
+        <span aria-hidden="true">01</span>
+        <div>
+          <h3>Contratación guiada</h3>
+          <p>Te ayudamos a elegir el plan ideal según tu cobertura y necesidades.</p>
+        </div>
+      </article>
+
+      <article class="benefit-card">
+        <span aria-hidden="true">02</span>
+        <div>
+          <h3>Soporte cercano</h3>
+          <p>Acompañamiento antes, durante y después de la contratación.</p>
+        </div>
+      </article>
+
+      <article class="benefit-card">
+        <span aria-hidden="true">03</span>
+        <div>
+          <h3>Planes competitivos</h3>
+          <p>Internet fibra, TV y streaming de las mejores marcas.</p>
+        </div>
+      </article>
+
+      <article class="benefit-card">
+        <span aria-hidden="true">04</span>
+        <div>
+          <h3>Oportunidad comercial</h3>
+          <p>Postula como vendedor y comienza a generar ingresos con apoyo real.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="planes" class="plans-section anchor-section">
+      <div class="section-title">
+        <span>ELIGE TU PLAN</span>
+        <h2>Planes de Internet Fibra, TV y Streaming</h2>
+        <p>Velocidades desde 600 hasta 940 Mbps • Internet + TV • Streaming</p>
+      </div>
+
+      <div class="plan-tabs" role="tablist" aria-label="Categorías de planes">
+        <button class="tab active" type="button" role="tab" aria-selected="true" aria-controls="solo-internet" data-target="solo-internet">Solo Internet</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="internet-tv" data-target="internet-tv">Internet + TV</button>
+        <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="streaming" data-target="streaming">Streaming</button>
+      </div>
+
+      <div class="plan-category active" id="solo-internet" role="tabpanel">
+        <h3 class="category-title">Solo Internet</h3>
+
+        <div class="plans-grid">
+          <article class="plan-card blue">
+            <h3>Fibra Hogar</h3>
+            <strong>600</strong>
+            <span>Megas</span>
+            <ul>
+              <li>Internet para navegación diaria</li>
+              <li>Ideal para estudiar, trabajar y redes sociales</li>
+              <li>Buena estabilidad para varios dispositivos</li>
+            </ul>
+            <p>Desde <b>$14.990</b> /mes</p>
+            <a href="#contacto" class="plan-btn">Consultar este plan</a>
+          </article>
+
+          <article class="plan-card pink">
+            <div class="popular">Más elegido</div>
+            <h3>Fibra Avanzado</h3>
+            <strong>800</strong>
+            <span>Megas</span>
+            <ul>
+              <li>Más velocidad para familias conectadas</li>
+              <li>Excelente para streaming, juegos y videollamadas</li>
+              <li>Recomendado para hogares con alto consumo</li>
+            </ul>
+            <p>Desde <b>$15.990</b> /mes</p>
+            <a href="#contacto" class="plan-btn">Consultar este plan</a>
+          </article>
+
+          <article class="plan-card green">
+            <h3>Fibra Experto</h3>
+            <strong>940</strong>
+            <span>Megas</span>
+            <ul>
+              <li>Máximo rendimiento disponible</li>
+              <li>Ideal para teletrabajo, contenido 4K y gaming</li>
+              <li>Pensado para hogares exigentes</li>
+            </ul>
+            <p>Desde <b>$19.990</b> /mes</p>
+            <a href="#contacto" class="plan-btn">Consultar este plan</a>
+          </article>
+        </div>
+      </div>
+
+      <div class="plan-category" id="internet-tv" role="tabpanel" hidden>
+        <h3 class="category-title">Internet + TV</h3>
+
+        <div class="plans-grid">
+          <article class="plan-card purple">
+            <h3>Fibra 600 + TV</h3>
+            <strong>600</strong>
+            <span>Megas + TV</span>
+            <ul>
+              <li>Internet para uso familiar</li>
+              <li>Televisión para entretención diaria</li>
+              <li>Una solución simple para conectar tu hogar</li>
+            </ul>
+            <p>Desde <b>$31.990</b> /mes</p>
+            <a href="#contacto" class="plan-btn">Consultar este plan</a>
+          </article>
+
+          <article class="plan-card orange">
+            <h3>Fibra 800 + TV</h3>
+            <strong>800</strong>
+            <span>Megas + TV</span>
+            <ul>
+              <li>Más velocidad para varios usuarios</li>
+              <li>TV e internet en un solo servicio</li>
+              <li>Recomendado para familias conectadas</li>
+            </ul>
+            <p>Desde <b>$33.990</b> /mes</p>
+            <a href="#contacto" class="plan-btn">Consultar este plan</a>
+          </article>
+
+          <article class="plan-card dark">
+            <h3>Fibra 940 + TV</h3>
+            <strong>940</strong>
+            <span>Megas + TV</span>
+            <ul>
+              <li>Máxima velocidad disponible con TV</li>
+              <li>Mejor experiencia para trabajo y entretención</li>
+              <li>Para hogares con alto uso de internet</li>
+            </ul>
+            <p>Desde <b>$38.990</b> /mes</p>
+            <a href="#contacto" class="plan-btn">Consultar este plan</a>
+          </article>
+        </div>
+      </div>
+
+      <div class="plan-category" id="streaming" role="tabpanel" hidden>
+        <h3 class="category-title">Internet + Streaming</h3>
+
+        <div class="plans-grid">
+          <article class="plan-card blue">
+            <h3>Fibra 600 Stream</h3>
+            <strong>600</strong>
+            <span>Megas</span>
+            <ul>
+              <li>Internet para ver series y películas</li>
+              <li>Buena experiencia en plataformas digitales</li>
+              <li>Ideal para uso diario y entretenimiento</li>
+            </ul>
+            <p>Desde <b>$20.990</b> /mes</p>
+            <a href="#contacto" class="plan-btn">Consultar este plan</a>
+          </article>
+
+          <article class="plan-card pink">
+            <h3>Fibra 800 Stream</h3>
+            <strong>800</strong>
+            <span>Megas</span>
+            <ul>
+              <li>Más velocidad para contenido en varios equipos</li>
+              <li>Streaming estable y navegación fluida</li>
+              <li>Buena opción para hogares conectados</li>
+            </ul>
+            <p>Desde <b>$21.990</b> /mes</p>
+            <a href="#contacto" class="plan-btn">Consultar este plan</a>
+          </article>
+
+          <article class="plan-card green">
+            <h3>Fibra 940 Stream</h3>
+            <strong>940</strong>
+            <span>Megas</span>
+            <ul>
+              <li>Máxima velocidad para streaming 4K</li>
+              <li>Excelente para videojuegos y teletrabajo</li>
+              <li>Rendimiento superior para alto consumo</li>
+            </ul>
+            <p>Desde <b>$25.990</b> /mes</p>
+            <a href="#contacto" class="plan-btn">Consultar este plan</a>
+          </article>
+        </div>
+      </div>
+
+      <p class="price-note">
+        Valores promocionales referenciales. Sujeto a factibilidad técnica, disponibilidad, comuna y condiciones comerciales vigentes.
+      </p>
+
+      <div class="plan-help">
+        <div>
+          <h3>¿No sabes qué plan elegir?</h3>
+          <p>Cuéntanos cuántas personas viven en tu hogar, qué uso le dan a internet y en qué comuna estás. Te recomendamos una opción clara.</p>
+        </div>
+        <a href="#consulta-plan" class="help-btn">Dejar mis datos</a>
+      </div>
+    </section>
+
+    <section id="consulta-plan" class="application-section anchor-section">
+      <div class="section-title compact">
+        <span>Consulta de planes</span>
+        <h2>Déjanos tu teléfono y te orientamos con el plan</h2>
+        <p>Completa tus datos para revisar cobertura, disponibilidad y el plan que más te conviene.</p>
+      </div>
+
+      <form class="application-form" id="consulta-plan-form" action="consulta-plan.php" method="post">
+        <div class="form-grid">
+          <label>
+            Nombre completo
+            <input type="text" name="nombre" autocomplete="name" placeholder="Ej: Camila Muñoz" required>
+          </label>
+
+          <label>
+            Teléfono
+            <input type="tel" name="telefono" autocomplete="tel" placeholder="Ej: +56 9 1234 5678" required>
+          </label>
+
+          <label>
+            Comuna o ciudad
+            <input type="text" name="comuna" autocomplete="address-level2" placeholder="Ej: Puerto Montt" required>
+          </label>
+
+          <label>
+            Plan de interés
+            <input type="text" name="plan_interes" id="plan-interes" placeholder="Ej: Fibra Avanzado 800 Megas" required>
+          </label>
+        </div>
+
+        <label class="full-field">
+          Mensaje opcional
+          <textarea name="mensaje" rows="4" placeholder="Cuéntanos tu dirección o qué necesitas revisar."></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Solicitar llamada</button>
+          <a href="#" class="btn-outline dark-outline" data-whatsapp-message="Hola TelcoSur SPA, quiero consultar un plan. Mi teléfono es:">Consultar por WhatsApp</a>
+        </div>
+
+        <p class="form-success" id="consulta-plan-success" hidden>Tu consulta fue preparada correctamente.</p>
+      </form>
+    </section>
+
+    <section id="vende" class="sell-section anchor-section">
+      <div class="sell-container">
+        <div class="sell-text">
+          <span class="section-tag">Oportunidad comercial</span>
+          <h2>Vende con <span>TelcoSur SPA</span> y convierte contactos en ingresos</h2>
+          <p>
+            Buscamos personas con actitud comercial, buen trato y ganas de crecer. En TelcoSur SPA cada venta se trabaja con orden, seguimiento y apoyo para que puedas construir ingresos de forma constante.
+          </p>
+
+          <ul class="sell-benefits">
+            <li>Comisiones atractivas por ventas concretadas</li>
+            <li>Capacitación inicial y orientación comercial</li>
+            <li>Acompañamiento para mejorar gestión y cierres</li>
+            <li>Flexibilidad para trabajar según tu zona y disponibilidad</li>
+          </ul>
+
+          <div class="sell-buttons">
+            <a href="#postulacion" class="btn-primary">Postula ahora</a>
+            <a href="#" class="btn-outline" data-whatsapp-message="Hola TelcoSur SPA, quisiera información para vender servicios de telecomunicaciones con ustedes.">Hablar por WhatsApp</a>
+          </div>
+        </div>
+
+        <aside class="sell-card" aria-label="Requisitos para vender con TelcoSur SPA">
+          <span>Perfil vendedor</span>
+          <h3>¿Qué necesitas?</h3>
+          <ul>
+            <li>Compromiso para aprender el proceso</li>
+            <li>Comunicación clara con posibles clientes</li>
+            <li>Seguimiento responsable de cada oportunidad</li>
+          </ul>
+          <p>Tu crecimiento importa: te damos una base clara para empezar y mejorar.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="commercial-steps anchor-section" id="como-unirte">
+      <div class="section-title compact">
+        <span>Cómo comenzar</span>
+        <h2>Postula en 3 pasos simples</h2>
+        <p>Queremos que el proceso sea claro desde el primer contacto: postulas, conversamos y te orientamos para iniciar con seguridad.</p>
+      </div>
+
+      <div class="steps-grid">
+        <article class="step-card">
+          <strong>1</strong>
+          <h3>Envía tus datos</h3>
+          <p>Completa el formulario con tu información, comuna, experiencia y disponibilidad. También puedes enviar tu postulación directamente por correo.</p>
+        </article>
+
+        <article class="step-card">
+          <strong>2</strong>
+          <h3>Conversamos contigo</h3>
+          <p>Revisamos tu perfil, resolvemos dudas y te explicamos cómo funciona la gestión comercial y el seguimiento de oportunidades.</p>
+        </article>
+
+        <article class="step-card">
+          <strong>3</strong>
+          <h3>Comienzas con apoyo</h3>
+          <p>Recibes orientación inicial, material comercial y acompañamiento para que puedas avanzar con foco y orden.</p>
+        </article>
+      </div>
+
+      <div class="work-note">
+        <h3>Cada venta representa una oportunidad real</h3>
+        <p>En TelcoSur SPA valoramos el esfuerzo comercial bien hecho: procesos simples, comunicación directa y un equipo enfocado en ayudarte a crecer.</p>
+      </div>
+    </section>
+
+    <section id="postulacion" class="application-section anchor-section">
+      <div class="section-title compact">
+        <span>Postulación</span>
+        <h2>Completa tus datos y da el primer paso para vender con TelcoSur SPA</h2>
+        <p>Tu postulación se prepara para enviarse a postulaciones@telcosurspa.cl. También puedes enviarla por WhatsApp si prefieres una respuesta directa.</p>
+      </div>
+
+      <form class="application-form" id="postulacion-form" action="postular.php" method="post">
+        <div class="form-grid">
+          <label>
+            Nombre completo
+            <input type="text" name="nombre" autocomplete="name" placeholder="Ej: Camila Muñoz" required>
+          </label>
+
+          <label>
+            RUT
+            <input type="text" name="rut" placeholder="Ej: 12.345.678-9" required>
+          </label>
+
+          <label>
+            Teléfono
+            <input type="tel" name="telefono" autocomplete="tel" placeholder="Ej: +56 9 1234 5678" required>
+          </label>
+
+          <label>
+            Correo electrónico
+            <input type="email" name="correo" autocomplete="email" placeholder="Ej: nombre@correo.cl" required>
+          </label>
+
+          <label>
+            Comuna o ciudad
+            <input type="text" name="comuna" autocomplete="address-level2" placeholder="Ej: Puerto Montt" required>
+          </label>
+
+          <label>
+            Experiencia en ventas
+            <select name="experiencia" required>
+              <option value="">Selecciona una opción</option>
+              <option value="sin-experiencia">Sin experiencia, quiero aprender</option>
+              <option value="menos-1">Menos de 1 año</option>
+              <option value="1-3">1 a 3 años</option>
+              <option value="mas-3">Más de 3 años</option>
+            </select>
+          </label>
+
+          <label>
+            Disponibilidad
+            <select name="disponibilidad" required>
+              <option value="">Selecciona una opción</option>
+              <option value="part-time">Part time</option>
+              <option value="full-time">Full time</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="full-field">
+          Cuéntanos brevemente por qué quieres postular
+          <textarea name="mensaje" rows="5" placeholder="Escribe tu motivación, sector donde podrías vender o experiencia previa."></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" name="canal" value="correo">Enviar postulación</button>
+          <button type="submit" class="btn-outline dark-outline" name="canal" value="whatsapp">Enviar por WhatsApp</button>
+        </div>
+
+        <p class="form-success" id="postulacion-success" hidden>Se abrió el canal de contacto con tu postulación lista para enviar.</p>
+      </form>
+    </section>
+
+    <section id="cobertura" class="coverage-section anchor-section">
+      <div class="section-title compact">
+        <span>Cobertura</span>
+        <h2>Revisamos disponibilidad por sector antes de contratar</h2>
+        <p>Envíanos tu dirección y comuna para confirmar factibilidad técnica y orientarte con las opciones disponibles.</p>
+      </div>
+
+      <figure class="coverage-map">
+        <img src="assets/mapa-regional-sur.png" alt="Mapa referencial de atención y cobertura regional sur de TelcoSur SPA" width="920" height="620" loading="lazy">
+      </figure>
+
+      <div class="coverage-cta">
+        <div>
+          <h3>¿Quieres confirmar cobertura en tu dirección?</h3>
+          <p>Escríbenos tu comuna, calle y numeración. Un asesor revisará disponibilidad antes de avanzar.</p>
+        </div>
+        <a href="#" class="btn-primary" data-whatsapp-message="Hola TelcoSur SPA, quisiera consultar si tengo cobertura en mi dirección. Mi comuna y dirección son:">Consultar cobertura</a>
+      </div>
+
+      <div class="coverage-grid">
+        <article>
+          <h3>Consulta por dirección</h3>
+          <p>Validamos disponibilidad técnica para evitar trámites innecesarios y ayudarte con información clara.</p>
+        </article>
+        <article>
+          <h3>Asesoría comercial</h3>
+          <p>Comparamos opciones de internet, TV y entretenimiento según tu uso real y presupuesto.</p>
+        </article>
+        <article>
+          <h3>Seguimiento cercano</h3>
+          <p>Mantenemos comunicación simple durante la solicitud, postulación o proceso comercial.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="preguntas" class="faq-section anchor-section">
+      <div class="section-title compact">
+        <span>Preguntas frecuentes</span>
+        <h2>Respuestas rápidas antes de contratar o postular</h2>
+        <p>Resolvemos las dudas principales para que puedas avanzar con confianza.</p>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>¿Cómo confirmo si puedo contratar?</summary>
+          <p>Escríbenos por WhatsApp con tu comuna y dirección completa. Revisaremos disponibilidad para orientarte con el plan adecuado.</p>
+        </details>
+
+        <details>
+          <summary>¿Puedo vender con TelcoSur SPA?</summary>
+          <p>Sí. Puedes completar el formulario de postulación o escribir por WhatsApp para recibir información comercial, requisitos y próximos pasos.</p>
+        </details>
+
+        <details>
+          <summary>¿Trabajan con internet, TV y streaming?</summary>
+          <p>Sí. La disponibilidad de cada servicio depende de la zona, cobertura y condiciones técnicas del domicilio.</p>
+        </details>
+
+        <details>
+          <summary>¿Qué datos debo enviar para consultar cobertura?</summary>
+          <p>Lo ideal es enviar comuna, calle, numeración y un teléfono de contacto para revisar factibilidad de manera más precisa.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="brands-section" aria-label="Marcas y servicios asociados">
+      <p>Trabajamos con servicios de marcas líderes</p>
+      <div class="brand-logos">
+        <img src="assets/logo-claro.png" alt="Marca de telecomunicaciones asociada" width="190" height="64" loading="lazy">
+        <img src="assets/logo-vtr.png" alt="Marca de telecomunicaciones asociada" width="190" height="64" loading="lazy">
+      </div>
+    </section>
+
+    <section id="contacto" class="contact-section anchor-section">
+      <div>
+        <span class="section-tag dark-tag">Contacto</span>
+        <h2>Hablemos de planes, cobertura o postulaciones</h2>
+        <p>
+          Escríbenos por WhatsApp para recibir atención directa. Si quieres postular como vendedor, también puedes escribir a postulaciones@telcosurspa.cl.
+        </p>
+      </div>
+
+      <div class="contact-actions">
+        <a href="#" class="btn-whatsapp big" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta.">Contactar por WhatsApp</a>
+        <a href="mailto:postulaciones@telcosurspa.cl" class="btn-secondary">Enviar postulación</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>TelcoSur SPA</strong> - Servicios de telecomunicaciones para hogares y oportunidades comerciales</p>
+    <p>Atención personalizada • Todos los derechos reservados © 2026</p>
+  </footer>
+
+  <a href="#" class="floating-whatsapp" aria-label="Contactar a TelcoSur SPA por WhatsApp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida.">WhatsApp</a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Archives / generated files
+*.zip
+*.rar
+*.7z
+
+# Local exports
+*.csv
+
+# Editor folders
+.vscode/
+.idea/
+
+# Logs
+*.log
