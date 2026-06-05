@@ -18,6 +18,7 @@
       <a href="index.html#inicio">Inicio</a>
       <a href="servicios.php">Servicios</a>
       <a href="planes.php">Planes</a>
+      <a href="trabaja-con-nosotros.php">Trabaja con nosotros</a>
       <a href="cobertura.php">Cobertura</a>
       <a href="sobre-nosotros.php">Sobre nosotros</a>
       <a href="contacto.php">Contacto</a>

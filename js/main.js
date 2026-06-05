@@ -65,6 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const applicationForm = document.getElementById("postulacion-form");
   const applicationSuccess = document.getElementById("postulacion-success");
+  const roleSelectInput = document.getElementById("cargo-interes");
+  const roleSelectButtons = document.querySelectorAll("[data-role-select]");
   const planInterestInput = document.getElementById("plan-interes");
   const planConsultationSection = document.getElementById("consulta-plan");
   const mapStage = document.getElementById("coverage-map-stage");
@@ -130,6 +132,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (planConsultationSection) {
         planConsultationSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
+  roleSelectButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (roleSelectInput && button.dataset.roleSelect) {
+        roleSelectInput.value = button.dataset.roleSelect;
       }
     });
   });
@@ -251,6 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `Telefono: ${getFieldValue(formData, "telefono")}`,
       `Correo: ${getFieldValue(formData, "correo")}`,
       `Comuna o ciudad: ${getFieldValue(formData, "comuna")}`,
+      `Cargo de interes: ${getFieldValue(formData, "cargo")}`,
       `Experiencia en ventas: ${getFieldValue(formData, "experiencia")}`,
       `Disponibilidad: ${getFieldValue(formData, "disponibilidad")}`,
       `Mensaje: ${getFieldValue(formData, "mensaje") || "Sin mensaje adicional"}`,

@@ -13,6 +13,9 @@ CREATE TABLE IF NOT EXISTS postulaciones (
   comuna VARCHAR(100) NOT NULL,
   experiencia VARCHAR(80) NOT NULL,
   disponibilidad VARCHAR(80) NOT NULL,
+  cargo VARCHAR(120) DEFAULT 'Ejecutivo comercial',
+  cv_archivo VARCHAR(255),
+  estado VARCHAR(40) DEFAULT 'Recibida',
   mensaje TEXT,
   fecha_postulacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

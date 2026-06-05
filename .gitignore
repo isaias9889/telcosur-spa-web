@@ -10,6 +10,10 @@ Desktop.ini
 # Local exports
 *.csv
 
+# Private candidate uploads
+uploads/cv/*
+!uploads/cv/.gitkeep
+
 # Editor folders
 .vscode/
 .idea/

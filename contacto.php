@@ -18,6 +18,7 @@
       <a href="index.html#inicio">Inicio</a>
       <a href="servicios.php">Servicios</a>
       <a href="planes.php">Planes</a>
+      <a href="trabaja-con-nosotros.php">Trabaja con nosotros</a>
       <a href="cobertura.php">Cobertura</a>
       <a href="sobre-nosotros.php">Sobre nosotros</a>
       <a href="contacto.php">Contacto</a>
@@ -53,7 +54,7 @@
           <span>Postulación</span>
           <h3>Quiero vender</h3>
           <p>Completa tu postulación o escribe al correo dedicado para oportunidades comerciales.</p>
-          <a href="index.html#postulacion">Postular</a>
+          <a href="trabaja-con-nosotros.php">Postular</a>
         </article>
       </div>
     </section>

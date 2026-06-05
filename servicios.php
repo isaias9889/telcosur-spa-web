@@ -18,6 +18,7 @@
       <a href="index.html#inicio">Inicio</a>
       <a href="servicios.php">Servicios</a>
       <a href="planes.php">Planes</a>
+      <a href="trabaja-con-nosotros.php">Trabaja con nosotros</a>
       <a href="cobertura.php">Cobertura</a>
       <a href="sobre-nosotros.php">Sobre nosotros</a>
       <a href="contacto.php">Contacto</a>
@@ -55,7 +56,7 @@
           <span>Comercial</span>
           <h3>Postulación de vendedores</h3>
           <p>Apoyamos a personas con actitud comercial para generar ingresos con seguimiento y capacitación.</p>
-          <a href="index.html#postulacion">Postular</a>
+          <a href="trabaja-con-nosotros.php">Postular</a>
         </article>
       </div>
     </section>

@@ -18,7 +18,7 @@
       <a href="index.html#inicio">Inicio</a>
       <a href="servicios.php">Servicios</a>
       <a href="planes.php">Planes</a>
-      <a href="index.html#vende">Vende con nosotros</a>
+      <a href="trabaja-con-nosotros.php">Trabaja con nosotros</a>
       <a href="cobertura.php">Cobertura</a>
       <a href="sobre-nosotros.php">Sobre nosotros</a>
       <a href="contacto.php">Contacto</a>
@@ -61,6 +61,32 @@
       </div>
     </section>
 
+    <section class="commerce-flow" aria-label="Flujo de contratacion de planes">
+      <div class="section-title compact">
+        <span>Contratacion asistida</span>
+        <h2>Compra sin friccion, primero validando cobertura</h2>
+        <p>Para evitar errores, el flujo comercial parte con una solicitud segura. Luego un asesor confirma factibilidad, condiciones y proximos pasos.</p>
+      </div>
+
+      <div class="commerce-steps">
+        <article>
+          <strong>1</strong>
+          <h3>Selecciona tu plan</h3>
+          <p>Elige internet, TV o streaming. El formulario se completa con el plan seleccionado.</p>
+        </article>
+        <article>
+          <strong>2</strong>
+          <h3>Validamos cobertura</h3>
+          <p>Revisamos comuna, sector y direccion para confirmar disponibilidad tecnica antes de avanzar.</p>
+        </article>
+        <article>
+          <strong>3</strong>
+          <h3>Confirmacion segura</h3>
+          <p>Cuando el servicio sea factible, se informa el siguiente paso comercial o una futura pasarela de pago.</p>
+        </article>
+      </div>
+    </section>
+
     <section id="planes" class="plans-section anchor-section">
       <div class="section-title">
         <span>ELIGE TU PLAN</span>
@@ -87,7 +113,7 @@
               <li>Buena estabilidad para varios dispositivos</li>
             </ul>
             <p>Desde <b>$14.990</b> /mes</p>
-            <a href="#consulta-plan" class="plan-btn">Consultar este plan</a>
+            <a href="#consulta-plan" class="plan-btn">Solicitar contratación</a>
           </article>
 
           <article class="plan-card pink">
@@ -101,7 +127,7 @@
               <li>Recomendado para hogares con alto consumo</li>
             </ul>
             <p>Desde <b>$15.990</b> /mes</p>
-            <a href="#consulta-plan" class="plan-btn">Consultar este plan</a>
+            <a href="#consulta-plan" class="plan-btn">Solicitar contratación</a>
           </article>
 
           <article class="plan-card green">
@@ -114,7 +140,7 @@
               <li>Pensado para hogares exigentes</li>
             </ul>
             <p>Desde <b>$19.990</b> /mes</p>
-            <a href="#consulta-plan" class="plan-btn">Consultar este plan</a>
+            <a href="#consulta-plan" class="plan-btn">Solicitar contratación</a>
           </article>
         </div>
       </div>
@@ -132,7 +158,7 @@
               <li>Una solución simple para conectar tu hogar</li>
             </ul>
             <p>Desde <b>$31.990</b> /mes</p>
-            <a href="#consulta-plan" class="plan-btn">Consultar este plan</a>
+            <a href="#consulta-plan" class="plan-btn">Solicitar contratación</a>
           </article>
 
           <article class="plan-card orange">
@@ -145,7 +171,7 @@
               <li>Recomendado para familias conectadas</li>
             </ul>
             <p>Desde <b>$33.990</b> /mes</p>
-            <a href="#consulta-plan" class="plan-btn">Consultar este plan</a>
+            <a href="#consulta-plan" class="plan-btn">Solicitar contratación</a>
           </article>
 
           <article class="plan-card dark">
@@ -158,7 +184,7 @@
               <li>Para hogares con alto uso de internet</li>
             </ul>
             <p>Desde <b>$38.990</b> /mes</p>
-            <a href="#consulta-plan" class="plan-btn">Consultar este plan</a>
+            <a href="#consulta-plan" class="plan-btn">Solicitar contratación</a>
           </article>
         </div>
       </div>
@@ -176,7 +202,7 @@
               <li>Ideal para uso diario y entretenimiento</li>
             </ul>
             <p>Desde <b>$20.990</b> /mes</p>
-            <a href="#consulta-plan" class="plan-btn">Consultar este plan</a>
+            <a href="#consulta-plan" class="plan-btn">Solicitar contratación</a>
           </article>
 
           <article class="plan-card pink">
@@ -189,7 +215,7 @@
               <li>Buena opción para hogares conectados</li>
             </ul>
             <p>Desde <b>$21.990</b> /mes</p>
-            <a href="#consulta-plan" class="plan-btn">Consultar este plan</a>
+            <a href="#consulta-plan" class="plan-btn">Solicitar contratación</a>
           </article>
 
           <article class="plan-card green">
@@ -202,7 +228,7 @@
               <li>Rendimiento superior para alto consumo</li>
             </ul>
             <p>Desde <b>$25.990</b> /mes</p>
-            <a href="#consulta-plan" class="plan-btn">Consultar este plan</a>
+            <a href="#consulta-plan" class="plan-btn">Solicitar contratación</a>
           </article>
         </div>
       </div>
@@ -249,6 +275,9 @@
           <button type="submit" class="btn-primary">Solicitar llamada</button>
           <a href="#" class="btn-outline dark-outline" data-whatsapp-message="Hola TelcoSur SPA, quiero consultar un plan. Mi teléfono es:">Consultar por WhatsApp</a>
         </div>
+        <p class="checkout-note">
+          Este formulario funciona como pre-compra asistida: tus datos quedan guardados para validar cobertura antes de confirmar contratacion o activar una pasarela de pago.
+        </p>
       </form>
     </section>
   </main>

@@ -1,6 +1,21 @@
 <?php
 require __DIR__ . '/db.php';
 
+$columnas = $pdo->query("SHOW COLUMNS FROM postulaciones")->fetchAll(PDO::FETCH_COLUMN);
+$columnasExistentes = array_flip($columnas);
+
+if (!isset($columnasExistentes['cargo'])) {
+    $pdo->exec("ALTER TABLE postulaciones ADD cargo VARCHAR(120) DEFAULT 'Ejecutivo comercial' AFTER disponibilidad");
+}
+
+if (!isset($columnasExistentes['cv_archivo'])) {
+    $pdo->exec("ALTER TABLE postulaciones ADD cv_archivo VARCHAR(255) NULL AFTER cargo");
+}
+
+if (!isset($columnasExistentes['estado'])) {
+    $pdo->exec("ALTER TABLE postulaciones ADD estado VARCHAR(40) DEFAULT 'Recibida' AFTER cv_archivo");
+}
+
 $registros = $pdo->query('SELECT * FROM postulaciones ORDER BY fecha_postulacion DESC')->fetchAll();
 ?>
 <!DOCTYPE html>
@@ -34,8 +49,11 @@ $registros = $pdo->query('SELECT * FROM postulaciones ORDER BY fecha_postulacion
             <th>Teléfono</th>
             <th>Correo</th>
             <th>Comuna</th>
+            <th>Cargo</th>
             <th>Experiencia</th>
             <th>Disponibilidad</th>
+            <th>Estado</th>
+            <th>CV</th>
             <th>Mensaje</th>
           </tr>
         </thead>
@@ -48,8 +66,17 @@ $registros = $pdo->query('SELECT * FROM postulaciones ORDER BY fecha_postulacion
               <td><?php echo htmlspecialchars($fila['telefono'], ENT_QUOTES, 'UTF-8'); ?></td>
               <td><?php echo htmlspecialchars($fila['correo'], ENT_QUOTES, 'UTF-8'); ?></td>
               <td><?php echo htmlspecialchars($fila['comuna'], ENT_QUOTES, 'UTF-8'); ?></td>
+              <td><?php echo htmlspecialchars($fila['cargo'] ?? 'Ejecutivo comercial', ENT_QUOTES, 'UTF-8'); ?></td>
               <td><?php echo htmlspecialchars($fila['experiencia'], ENT_QUOTES, 'UTF-8'); ?></td>
               <td><?php echo htmlspecialchars($fila['disponibilidad'], ENT_QUOTES, 'UTF-8'); ?></td>
+              <td><?php echo htmlspecialchars($fila['estado'] ?? 'Recibida', ENT_QUOTES, 'UTF-8'); ?></td>
+              <td>
+                <?php if (!empty($fila['cv_archivo'])): ?>
+                  <a href="uploads/cv/<?php echo rawurlencode($fila['cv_archivo']); ?>" target="_blank" rel="noopener">Ver CV</a>
+                <?php else: ?>
+                  Sin archivo
+                <?php endif; ?>
+              </td>
               <td><?php echo htmlspecialchars($fila['mensaje'], ENT_QUOTES, 'UTF-8'); ?></td>
             </tr>
           <?php endforeach; ?>
