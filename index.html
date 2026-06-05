@@ -684,9 +684,46 @@
         <p>Envíanos tu dirección y comuna para confirmar factibilidad técnica y orientarte con las opciones disponibles.</p>
       </div>
 
-      <figure class="coverage-map">
-        <img src="assets/mapa-regional-sur.png" alt="Mapa referencial de atención y cobertura regional sur de TelcoSur SPA" width="920" height="620" loading="lazy">
-      </figure>
+      <div class="interactive-map" aria-label="Mapa interactivo de cobertura regional sur de TelcoSur SPA">
+        <div class="map-toolbar" aria-label="Controles del mapa">
+          <button type="button" class="map-control" data-map-zoom="in" aria-label="Acercar mapa">+</button>
+          <button type="button" class="map-control" data-map-zoom="out" aria-label="Alejar mapa">-</button>
+          <button type="button" class="map-control wide" data-map-reset aria-label="Restablecer mapa">Centrar</button>
+        </div>
+
+        <div class="map-stage" id="coverage-map-stage">
+          <div class="map-canvas" id="coverage-map-canvas">
+            <img src="assets/mapa-regional-sur.png" alt="Mapa regional del sur de Chile con zonas de atención de TelcoSur SPA" width="920" height="620" loading="lazy" draggable="false">
+
+            <button class="map-marker" type="button" style="left: 54%; top: 23%;" data-city="Temuco" data-detail="Atención comercial y revisión de factibilidad para hogares de La Araucanía.">
+              <span></span>
+              Temuco
+            </button>
+
+            <button class="map-marker" type="button" style="left: 48%; top: 39%;" data-city="Valdivia" data-detail="Consulta de planes, cobertura y oportunidades comerciales en Los Ríos.">
+              <span></span>
+              Valdivia
+            </button>
+
+            <button class="map-marker" type="button" style="left: 44%; top: 56%;" data-city="Osorno" data-detail="Asesoría para internet, TV y streaming según disponibilidad del sector.">
+              <span></span>
+              Osorno
+            </button>
+
+            <button class="map-marker" type="button" style="left: 39%; top: 72%;" data-city="Puerto Montt" data-detail="Zona prioritaria de atención para consultas de cobertura y postulación comercial.">
+              <span></span>
+              Puerto Montt
+            </button>
+          </div>
+        </div>
+
+        <aside class="map-info" id="coverage-map-info" aria-live="polite">
+          <span>Zona seleccionada</span>
+          <h3>Elige una ciudad del mapa</h3>
+          <p>Haz clic en un marcador para ver información de atención y consultar factibilidad en esa zona.</p>
+          <a href="#consulta-plan" class="btn-primary">Consultar cobertura</a>
+        </aside>
+      </div>
 
       <div class="coverage-cta">
         <div>

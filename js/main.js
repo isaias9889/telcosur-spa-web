@@ -67,6 +67,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const applicationSuccess = document.getElementById("postulacion-success");
   const planInterestInput = document.getElementById("plan-interes");
   const planConsultationSection = document.getElementById("consulta-plan");
+  const mapStage = document.getElementById("coverage-map-stage");
+  const mapCanvas = document.getElementById("coverage-map-canvas");
+  const mapInfo = document.getElementById("coverage-map-info");
+  const mapMarkers = document.querySelectorAll(".map-marker");
+  const mapControls = document.querySelectorAll("[data-map-zoom]");
+  const mapReset = document.querySelector("[data-map-reset]");
 
   const whatsappConfig = {
     number: "56963719919",
@@ -127,6 +133,107 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  if (mapStage && mapCanvas) {
+    const mapState = {
+      scale: 1,
+      x: 0,
+      y: 0,
+      dragging: false,
+      startX: 0,
+      startY: 0,
+      originX: 0,
+      originY: 0,
+    };
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const applyMapTransform = () => {
+      mapCanvas.style.transform = `translate(${mapState.x}px, ${mapState.y}px) scale(${mapState.scale})`;
+    };
+
+    const setMapZoom = (nextScale) => {
+      mapState.scale = clamp(nextScale, 1, 2.2);
+
+      if (mapState.scale === 1) {
+        mapState.x = 0;
+        mapState.y = 0;
+      }
+
+      applyMapTransform();
+    };
+
+    const resetMap = () => {
+      mapState.scale = 1;
+      mapState.x = 0;
+      mapState.y = 0;
+      applyMapTransform();
+    };
+
+    mapControls.forEach((control) => {
+      control.addEventListener("click", () => {
+        const direction = control.dataset.mapZoom;
+        setMapZoom(mapState.scale + (direction === "in" ? 0.2 : -0.2));
+      });
+    });
+
+    if (mapReset) {
+      mapReset.addEventListener("click", resetMap);
+    }
+
+    mapStage.addEventListener("pointerdown", (event) => {
+      if (event.target.closest(".map-marker")) {
+        return;
+      }
+
+      mapState.dragging = true;
+      mapState.startX = event.clientX;
+      mapState.startY = event.clientY;
+      mapState.originX = mapState.x;
+      mapState.originY = mapState.y;
+      mapStage.setPointerCapture(event.pointerId);
+    });
+
+    mapStage.addEventListener("pointermove", (event) => {
+      if (!mapState.dragging) {
+        return;
+      }
+
+      mapState.x = mapState.originX + event.clientX - mapState.startX;
+      mapState.y = mapState.originY + event.clientY - mapState.startY;
+      applyMapTransform();
+    });
+
+    const stopDragging = () => {
+      mapState.dragging = false;
+    };
+
+    mapStage.addEventListener("pointerup", stopDragging);
+    mapStage.addEventListener("pointercancel", stopDragging);
+    mapStage.addEventListener("pointerleave", stopDragging);
+
+    mapMarkers.forEach((marker) => {
+      marker.addEventListener("click", () => {
+        mapMarkers.forEach((item) => item.classList.remove("active"));
+        marker.classList.add("active");
+
+        if (mapInfo) {
+          const city = marker.dataset.city || "Zona seleccionada";
+          const detail = marker.dataset.detail || "Consulta factibilidad y disponibilidad para esta zona.";
+          mapInfo.innerHTML = `
+            <span>Zona seleccionada</span>
+            <h3>${city}</h3>
+            <p>${detail}</p>
+            <a href="#consulta-plan" class="btn-primary">Consultar cobertura</a>
+          `;
+        }
+
+        if (planInterestInput) {
+          planInterestInput.value = `Consulta de cobertura en ${marker.dataset.city || "zona seleccionada"}`;
+        }
+      });
+    });
+  }
 
   const getFieldValue = (formData, fieldName) => {
     return String(formData.get(fieldName) || "").trim();
