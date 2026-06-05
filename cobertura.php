@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cobertura Interactiva | TelcoSur SPA</title>
-  <meta name="description" content="Revisa el mapa interactivo de cobertura de TelcoSur SPA en el sur de Chile y deja tus datos para consultar factibilidad técnica.">
+  <title>Oficinas y Cobertura | TelcoSur SPA</title>
+  <meta name="description" content="Revisa las oficinas TelcoSur SPA para trabajadores y usa el mapa interactivo para consultar plazas, direcciones y cobertura.">
   <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -30,9 +30,9 @@
   <main>
     <section class="page-hero">
       <div class="page-hero-inner">
-        <span class="badge">Cobertura interactiva</span>
-        <h1>Explora zonas de atención y consulta factibilidad por dirección</h1>
-        <p>Usa el mapa para acercar, desplazar y seleccionar ciudades del sur donde se concentra la atención comercial de TelcoSur SPA.</p>
+        <span class="badge">Oficinas TelcoSur</span>
+        <h1>Explora las oficinas disponibles para trabajadores</h1>
+        <p>Usa el mapa para acercar, desplazar y seleccionar una plaza. Cada marcador muestra dirección y ciudad de oficina.</p>
       </div>
     </section>
 
@@ -48,22 +48,47 @@
           <div class="map-canvas" id="coverage-map-canvas">
             <img src="assets/mapa-regional-sur.png" alt="Mapa regional del sur de Chile con zonas de atención de TelcoSur SPA" width="920" height="620" loading="lazy" draggable="false">
 
-            <button class="map-marker" type="button" style="left: 54%; top: 23%;" data-city="Temuco" data-detail="Atención comercial y revisión de factibilidad para hogares de La Araucanía.">
+            <button class="map-marker" type="button" style="left: 57%; top: 8%;" data-city="Santiago" data-address="Av Irarrázaval 2821 A Of 1110" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+              <span></span>
+              Santiago
+            </button>
+
+            <button class="map-marker" type="button" style="left: 55%; top: 14%;" data-city="Talca" data-address="1 Norte 931 Of 605" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+              <span></span>
+              Talca
+            </button>
+
+            <button class="map-marker" type="button" style="left: 53%; top: 20%;" data-city="Chillán" data-address="El Roble 627 Of 2, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+              <span></span>
+              Chillán
+            </button>
+
+            <button class="map-marker" type="button" style="left: 49%; top: 26%;" data-city="Concepción" data-address="Portales 530 Of 31" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+              <span></span>
+              Concepción
+            </button>
+
+            <button class="map-marker" type="button" style="left: 52%; top: 31%;" data-city="Los Ángeles" data-address="Edificio del Desarrollo Lautaro 268 Of 303" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+              <span></span>
+              Los Ángeles
+            </button>
+
+            <button class="map-marker" type="button" style="left: 54%; top: 38%;" data-city="Temuco" data-address="Manuel Bulnes 815 Of 402" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Temuco
             </button>
 
-            <button class="map-marker" type="button" style="left: 48%; top: 39%;" data-city="Valdivia" data-detail="Consulta de planes, cobertura y oportunidades comerciales en Los Ríos.">
+            <button class="map-marker" type="button" style="left: 48%; top: 51%;" data-city="Valdivia" data-address="Independencia 630 Of 304, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Valdivia
             </button>
 
-            <button class="map-marker" type="button" style="left: 44%; top: 56%;" data-city="Osorno" data-detail="Asesoría para internet, TV y streaming según disponibilidad del sector.">
+            <button class="map-marker" type="button" style="left: 44%; top: 63%;" data-city="Osorno" data-address="Conrrado Anthauer 1190 Of D, 2do piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Osorno
             </button>
 
-            <button class="map-marker" type="button" style="left: 39%; top: 72%;" data-city="Puerto Montt" data-detail="Zona prioritaria de atención para consultas de cobertura y postulación comercial.">
+            <button class="map-marker" type="button" style="left: 39%; top: 78%;" data-city="Puerto Montt" data-address="Benavente N°540" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Puerto Montt
             </button>
@@ -71,10 +96,10 @@
         </div>
 
         <aside class="map-info" id="coverage-map-info" aria-live="polite">
-          <span>Zona seleccionada</span>
-          <h3>Elige una ciudad del mapa</h3>
-          <p>Haz clic en un marcador para ver información de atención y consultar factibilidad en esa zona.</p>
-          <a href="#consulta-plan" class="btn-primary">Consultar cobertura</a>
+          <span>Oficina seleccionada</span>
+          <h3>Elige una oficina del mapa</h3>
+          <p>Haz clic en un marcador para ver la plaza y dirección de la oficina TelcoSur correspondiente.</p>
+          <a href="contacto.php" class="btn-primary">Consultar oficina</a>
         </aside>
       </div>
 

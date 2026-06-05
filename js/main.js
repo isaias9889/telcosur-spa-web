@@ -218,18 +218,21 @@ document.addEventListener("DOMContentLoaded", () => {
         marker.classList.add("active");
 
         if (mapInfo) {
-          const city = marker.dataset.city || "Zona seleccionada";
-          const detail = marker.dataset.detail || "Consulta factibilidad y disponibilidad para esta zona.";
+          const city = marker.dataset.city || "Oficina seleccionada";
+          const address = marker.dataset.address || "";
+          const detail = marker.dataset.detail || "Oficina TelcoSur para trabajadores y coordinación comercial.";
+          const addressMarkup = address ? `<p><strong>Dirección:</strong> ${address}</p>` : "";
           mapInfo.innerHTML = `
-            <span>Zona seleccionada</span>
+            <span>Oficina seleccionada</span>
             <h3>${city}</h3>
             <p>${detail}</p>
-            <a href="#consulta-plan" class="btn-primary">Consultar cobertura</a>
+            ${addressMarkup}
+            <a href="contacto.php" class="btn-primary">Consultar oficina</a>
           `;
         }
 
         if (planInterestInput) {
-          planInterestInput.value = `Consulta de cobertura en ${marker.dataset.city || "zona seleccionada"}`;
+          planInterestInput.value = `Oficina TelcoSur en ${marker.dataset.city || "ciudad seleccionada"}`;
         }
       });
     });
