@@ -1197,6 +1197,93 @@ img {
 }
 
 /* =============================
+   PAGINAS INTERNAS
+============================= */
+.page-hero {
+  padding: 64px 7% 46px;
+  background:
+    radial-gradient(circle at 82% 22%, rgba(0, 93, 255, 0.12), transparent 28%),
+    linear-gradient(135deg, #ffffff 0%, #f5f9ff 62%, #eaf4ff 100%);
+}
+
+.page-hero-inner {
+  max-width: 980px;
+}
+
+.page-hero h1 {
+  color: var(--color-heading);
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.05;
+  margin: 14px 0 16px;
+}
+
+.page-hero p {
+  color: var(--color-muted);
+  font-size: 19px;
+  line-height: 1.55;
+  max-width: 720px;
+}
+
+.plan-summary {
+  padding: 50px 7% 24px;
+  background: #ffffff;
+}
+
+.plan-summary-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.summary-card {
+  padding: 26px;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+}
+
+.summary-card span {
+  display: inline-block;
+  color: var(--color-blue);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.summary-card h3 {
+  color: var(--color-heading);
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.summary-card p {
+  color: var(--color-muted);
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.summary-card a {
+  color: var(--color-blue);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.coverage-page-layout {
+  padding: 50px 7% 60px;
+  background: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .plan-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =============================
    RESPONSIVE
 ============================= */
 @media (max-width: 1100px) {
