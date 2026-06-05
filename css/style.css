@@ -35,6 +35,60 @@ img {
   max-width: 100%;
 }
 
+@keyframes softReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text,
+.hero-image,
+.trust-strip,
+.benefit-card,
+.plan-card,
+.summary-card,
+.step-card,
+.coverage-grid article,
+.application-form,
+.contact-section,
+.interactive-map {
+  animation: softReveal 0.72s ease both;
+}
+
+.benefit-card:nth-child(2),
+.plan-card:nth-child(2),
+.summary-card:nth-child(2),
+.step-card:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.benefit-card:nth-child(3),
+.plan-card:nth-child(3),
+.summary-card:nth-child(3),
+.step-card:nth-child(3) {
+  animation-delay: 0.14s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 .anchor-section {
   scroll-margin-top: 104px;
 }
@@ -1243,6 +1297,13 @@ img {
   border-radius: 18px;
   background: #ffffff;
   box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 93, 255, 0.28);
+  box-shadow: 0 20px 50px rgba(0, 34, 80, 0.13);
 }
 
 .summary-card span {

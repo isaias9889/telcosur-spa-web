@@ -16,11 +16,12 @@
 
     <nav class="navbar" aria-label="Navegación principal">
       <a href="index.html#inicio">Inicio</a>
+      <a href="servicios.php">Servicios</a>
       <a href="planes.php">Planes</a>
       <a href="index.html#vende">Vende con nosotros</a>
       <a href="cobertura.php">Cobertura</a>
-      <a href="index.html#preguntas">Preguntas</a>
-      <a href="index.html#contacto">Contacto</a>
+      <a href="sobre-nosotros.php">Sobre nosotros</a>
+      <a href="contacto.php">Contacto</a>
     </nav>
 
     <a href="#" class="btn-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera recibir información sobre sus planes.">WhatsApp</a>
