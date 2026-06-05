@@ -951,17 +951,17 @@ img {
 
 .interactive-map {
   position: relative;
-  max-width: 1180px;
+  max-width: 1380px;
   margin: 0 auto 32px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 22px;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 26px;
   align-items: stretch;
 }
 
 .map-stage {
   position: relative;
-  min-height: 430px;
+  min-height: 560px;
   border: 1px solid var(--color-border);
   border-radius: 18px;
   background: #eef5ff;
@@ -980,7 +980,7 @@ img {
   left: 0;
   top: 0;
   width: 100%;
-  min-width: 920px;
+  min-width: 1120px;
   transform-origin: 50% 50%;
   transition: transform 0.2s ease;
   user-select: none;
@@ -989,7 +989,7 @@ img {
 .map-canvas img {
   display: block;
   width: 100%;
-  height: 430px;
+  height: 560px;
   object-fit: cover;
   object-position: center;
   pointer-events: none;
@@ -1704,11 +1704,11 @@ img {
   }
 
   .map-stage {
-    min-height: 340px;
+    min-height: 420px;
   }
 
   .map-canvas img {
-    height: 340px;
+    height: 420px;
   }
 
   .brands-section,
