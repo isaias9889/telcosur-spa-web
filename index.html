@@ -240,7 +240,9 @@
       <img src="assets/logo.png" alt="Logo de TelcoSur SPA" width="82" height="82">
     </a>
 
-    <nav class="navbar" aria-label="Navegación principal">
+    <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-main-menu"><span></span><span></span><span></span></button>
+
+    <nav class="navbar" id="mobile-main-menu" aria-label="Navegación principal">
       <a href="#inicio">Inicio</a>
       <a href="servicios.php">Servicios</a>
       <a href="planes.php">Planes</a>
@@ -258,14 +260,14 @@
       <div class="hero-text">
         <span class="badge">TelcoSur SPA - Conectando hacia el futuro de Chile</span>
 
-        <h1>Internet, TV y oportunidades comerciales con atención cercana</h1>
+        <h1>Conecta tu hogar y haz crecer tu oportunidad comercial con TelcoSur SPA</h1>
 
         <p>
-          En TelcoSur SPA te ayudamos a encontrar el plan de internet, TV o entretenimiento que mejor calza con tu hogar, tu cobertura y tu presupuesto.
+          En TelcoSur SPA orientamos a hogares y clientes que buscan internet, TV y entretenimiento con una atención clara, cercana y enfocada en la cobertura real de cada dirección.
         </p>
 
         <p>
-          También abrimos oportunidades para vendedores que quieran generar ingresos ofreciendo servicios de telecomunicaciones con respaldo, capacitación y acompañamiento.
+          También impulsamos oportunidades comerciales para personas que quieran vender servicios de telecomunicaciones con respaldo, acompañamiento y procesos simples para avanzar.
         </p>
 
         <ul class="hero-proof" aria-label="Beneficios destacados de TelcoSur SPA">
@@ -275,8 +277,8 @@
         </ul>
 
         <div class="hero-buttons">
-          <a href="planes.php" class="btn-primary">Ver planes hogar</a>
-          <a href="trabaja-con-nosotros.php" class="btn-secondary">Quiero vender</a>
+          <a href="planes.php" class="btn-primary">Encontrar mi plan</a>
+          <a href="trabaja-con-nosotros.php" class="btn-secondary">Trabaja con nosotros</a>
         </div>
       </div>
 
@@ -300,6 +302,34 @@
       </article>
     </section>
 
+    <section class="home-choice-section" aria-label="Accesos principales TelcoSur SPA">
+      <div class="section-title compact">
+        <span>Elige cómo quieres avanzar</span>
+        <h2>Soluciones rápidas para clientes y vendedores</h2>
+        <p>Desde la primera visita, la página te guía hacia la acción correcta: consultar planes, revisar cobertura o postular para vender.</p>
+      </div>
+
+      <div class="home-choice-grid">
+        <article>
+          <span>Hogar</span>
+          <h3>Quiero contratar internet o TV</h3>
+          <p>Revisa alternativas de fibra, TV y streaming según el uso de tu hogar.</p>
+          <a href="planes.php">Ver planes</a>
+        </article>
+        <article>
+          <span>Cobertura</span>
+          <h3>Quiero saber si tengo factibilidad</h3>
+          <p>Envía tu dirección y comuna para que podamos revisar disponibilidad técnica.</p>
+          <a href="cobertura.php#consulta-plan">Consultar cobertura</a>
+        </article>
+        <article>
+          <span>Ventas</span>
+          <h3>Quiero trabajar vendiendo</h3>
+          <p>Postula a oportunidades comerciales con apoyo, seguimiento y capacitación.</p>
+          <a href="trabaja-con-nosotros.php">Postular ahora</a>
+        </article>
+      </div>
+    </section>
     <section class="benefits" aria-label="Beneficios principales">
       <article class="benefit-card">
         <span aria-hidden="true">01</span>
@@ -483,6 +513,19 @@
         </div>
       </div>
 
+      <section class="sales-proof-section" aria-label="Ayuda para elegir plan">
+        <div>
+          <span>Recomendación rápida</span>
+          <h3>¿No sabes si necesitas 600, 800 o 940 megas?</h3>
+          <p>Te orientamos según cantidad de personas, uso de streaming, teletrabajo, juegos y disponibilidad por dirección.</p>
+        </div>
+        <ul>
+          <li>600 megas: uso diario y navegación familiar.</li>
+          <li>800 megas: hogares con streaming, juegos y varios equipos.</li>
+          <li>940 megas: máximo rendimiento para alto consumo.</li>
+        </ul>
+        <a href="planes.php#consulta-plan" class="btn-primary">Pedir recomendación</a>
+      </section>
       <p class="price-note">
         Valores promocionales referenciales. Sujeto a factibilidad técnica, disponibilidad, comuna y condiciones comerciales vigentes.
       </p>
@@ -694,49 +737,43 @@
 
         <div class="map-stage" id="coverage-map-stage">
           <div class="map-canvas" id="coverage-map-canvas">
-            <img src="assets/mapa-regional-sur.png" alt="Mapa regional del sur de Chile con zonas de atención de TelcoSur SPA" width="920" height="620" loading="lazy" draggable="false">
+            <img src="assets/mapa-regional-sur.png" alt="Mapa regional del sur de Chile con zonas de atención de TelcoSur SPA" width="1024" height="1536" loading="lazy" draggable="false">
 
-            <button class="map-marker" type="button" style="left: 57%; top: 8%;" data-city="Santiago" data-address="Av Irarrázaval 2821 A Of 1110" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 72.5%; top: 8.2%;" data-city="Santiago" data-address="Av Irarrázaval 2821 A Of 1110" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Santiago
             </button>
 
-            <button class="map-marker" type="button" style="left: 55%; top: 14%;" data-city="Talca" data-address="1 Norte 931 Of 605" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 64.6%; top: 27%;" data-city="Talca" data-address="1 Norte 931 Of 605" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Talca
             </button>
 
-            <button class="map-marker" type="button" style="left: 53%; top: 20%;" data-city="Chillán" data-address="El Roble 627 Of 2, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 58.6%; top: 37.4%;" data-city="Chillán" data-address="El Roble 627 Of 2, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Chillán
             </button>
 
-            <button class="map-marker" type="button" style="left: 49%; top: 26%;" data-city="Concepción" data-address="Portales 530 Of 31" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 48%; top: 45.6%;" data-city="Concepción" data-address="Portales 530 Of 31" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Concepción
             </button>
-
-            <button class="map-marker" type="button" style="left: 52%; top: 31%;" data-city="Los Ángeles" data-address="Edificio del Desarrollo Lautaro 268 Of 303" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
-              <span></span>
-              Los Ángeles
-            </button>
-
-            <button class="map-marker" type="button" style="left: 54%; top: 38%;" data-city="Temuco" data-address="Manuel Bulnes 815 Of 402" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 51%; top: 58.1%;" data-city="Temuco" data-address="Manuel Bulnes 815 Of 402" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Temuco
             </button>
 
-            <button class="map-marker" type="button" style="left: 48%; top: 51%;" data-city="Valdivia" data-address="Independencia 630 Of 304, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 48.9%; top: 67.9%;" data-city="Valdivia" data-address="Independencia 630 Of 304, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Valdivia
             </button>
 
-            <button class="map-marker" type="button" style="left: 44%; top: 63%;" data-city="Osorno" data-address="Conrrado Anthauer 1190 Of D, 2do piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 48.9%; top: 77%;" data-city="Osorno" data-address="Conrrado Anthauer 1190 Of D, 2do piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Osorno
             </button>
 
-            <button class="map-marker" type="button" style="left: 39%; top: 78%;" data-city="Puerto Montt" data-address="Benavente N°540" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 49%; top: 87.2%;" data-city="Puerto Montt" data-address="Benavente N°540" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Puerto Montt
             </button>
@@ -775,6 +812,18 @@
       </div>
     </section>
 
+    <section class="company-value-section" aria-label="Por qué elegir TelcoSur SPA">
+      <div class="company-value-copy">
+        <span class="section-tag dark-tag">Empresa y atención</span>
+        <h2>Una web pensada para vender, orientar y responder rápido</h2>
+        <p>TelcoSur SPA combina atención comercial, consulta de cobertura y postulaciones en un mismo lugar. El objetivo es que cada visitante encuentre el camino correcto sin perder tiempo.</p>
+      </div>
+      <div class="company-value-grid">
+        <article><strong>01</strong><h3>Consulta directa</h3><p>Botones y formularios conectados a WhatsApp o registro interno.</p></article>
+        <article><strong>02</strong><h3>Información clara</h3><p>Planes, cobertura y oportunidades explicadas con lenguaje simple.</p></article>
+        <article><strong>03</strong><h3>Enfoque comercial</h3><p>Diseño orientado a convertir visitas en consultas y postulaciones.</p></article>
+      </div>
+    </section>
     <section id="preguntas" class="faq-section anchor-section">
       <div class="section-title compact">
         <span>Preguntas frecuentes</span>
@@ -813,13 +862,14 @@
       </div>
     </section>
 
-    <section id="contacto" class="contact-section anchor-section">
+    <section id="contacto" class="contact-section anchor-section upgraded-contact">
       <div>
         <span class="section-tag dark-tag">Contacto</span>
-        <h2>Hablemos de planes, cobertura o postulaciones</h2>
+        <h2>Listos para ayudarte con planes, cobertura o postulaciones</h2>
         <p>
-          Escríbenos por WhatsApp para recibir atención directa. Si quieres postular como vendedor, también puedes escribir a postulaciones@telcosurspa.cl.
+          Elige el canal que más acomode a tu necesidad. Podemos orientar una contratación, revisar cobertura o recibir una postulación comercial.
         </p>
+        <div class="contact-mini-grid"><span>Planes hogar</span><span>Cobertura</span><span>Postulaciones</span></div>
       </div>
 
       <div class="contact-actions">
@@ -829,11 +879,16 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <p><strong>TelcoSur SPA</strong> - Servicios de telecomunicaciones para hogares y oportunidades comerciales</p>
+  <footer class="footer footer-upgraded">
+    <div><strong>TelcoSur SPA</strong><p>Internet, TV, cobertura y oportunidades comerciales.</p></div>
+    <nav aria-label="Enlaces rápidos del pie de página"><a href="planes.php">Planes</a><a href="cobertura.php">Cobertura</a><a href="trabaja-con-nosotros.php">Trabaja con nosotros</a><a href="contacto.php">Contacto</a></nav>
     <p>Atención personalizada • Todos los derechos reservados © 2026</p>
   </footer>
 
+  <div class="mobile-action-bar" aria-label="Acciones rápidas móviles">
+    <a class="mobile-action-primary" href="planes.php#consulta-plan">Consultar plan</a>
+    <a href="#" class="mobile-action-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida."><img src="assets/logo-whatsapp.jpeg" alt="" aria-hidden="true">WhatsApp</a>
+  </div>
   <a href="#" class="floating-whatsapp" aria-label="Contactar a TelcoSur SPA por WhatsApp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida.">WhatsApp</a>
 
   <script src="js/main.js"></script>

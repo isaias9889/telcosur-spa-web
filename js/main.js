@@ -33,6 +33,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const siteHeader = document.querySelector(".header");
+  const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+  const navbar = document.querySelector(".navbar");
+
+  if (siteHeader && mobileMenuToggle && navbar) {
+    const setMobileMenu = (isOpen) => {
+      siteHeader.classList.toggle("menu-open", isOpen);
+      mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+      mobileMenuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+    };
+
+    mobileMenuToggle.addEventListener("click", () => {
+      setMobileMenu(!siteHeader.classList.contains("menu-open"));
+    });
+
+    navbar.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMobileMenu(false));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!siteHeader.contains(event.target)) {
+        setMobileMenu(false);
+      }
+    });
+  }
   const tabs = document.querySelectorAll(".tab[data-target]");
   const planCategories = document.querySelectorAll(".plan-category");
 
@@ -42,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const selectedCategory = document.getElementById(targetId);
 
       if (!targetId || !selectedCategory) {
-        return;
+        return null;
       }
 
       tabs.forEach((tab) => {
@@ -56,13 +81,59 @@ document.addEventListener("DOMContentLoaded", () => {
         category.classList.toggle("active", isActive);
         category.hidden = !isActive;
       });
+
+      return selectedCategory;
+    };
+
+    const activateTabById = (targetId, shouldScroll = false) => {
+      const selectedTab = Array.from(tabs).find((tab) => tab.dataset.target === targetId);
+      const selectedCategory = selectedTab ? activateTab(selectedTab) : null;
+
+      if (selectedCategory && shouldScroll) {
+        const scrollTarget = document.querySelector(".plan-tabs") || selectedCategory;
+        scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      return selectedCategory;
+    };
+
+    const getPlanHashTarget = () => {
+      const hashTarget = decodeURIComponent(window.location.hash.replace("#", ""));
+      return Array.from(planCategories).some((category) => category.id === hashTarget) ? hashTarget : "";
     };
 
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => activateTab(tab));
     });
-  }
 
+    document.querySelectorAll('[data-plan-jump], a[href="#solo-internet"], a[href="#internet-tv"], a[href="#streaming"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const targetId = link.dataset.planJump || link.getAttribute("href")?.replace("#", "");
+
+        if (!targetId) {
+          return;
+        }
+
+        event.preventDefault();
+        window.history.pushState(null, "", `#${targetId}`);
+        activateTabById(targetId, true);
+      });
+    });
+
+    const initialPlanTarget = getPlanHashTarget();
+
+    if (initialPlanTarget) {
+      setTimeout(() => activateTabById(initialPlanTarget, true), 80);
+    }
+
+    window.addEventListener("hashchange", () => {
+      const nextPlanTarget = getPlanHashTarget();
+
+      if (nextPlanTarget) {
+        activateTabById(nextPlanTarget, true);
+      }
+    });
+  }
   const applicationForm = document.getElementById("postulacion-form");
   const applicationSuccess = document.getElementById("postulacion-success");
   const roleSelectInput = document.getElementById("cargo-interes");
@@ -73,6 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mapCanvas = document.getElementById("coverage-map-canvas");
   const mapInfo = document.getElementById("coverage-map-info");
   const mapMarkers = document.querySelectorAll(".map-marker");
+  const officeChips = document.querySelectorAll("[data-office-city]");
   const mapControls = document.querySelectorAll("[data-map-zoom]");
   const mapReset = document.querySelector("[data-map-reset]");
 
@@ -227,6 +299,10 @@ document.addEventListener("DOMContentLoaded", () => {
         mapMarkers.forEach((item) => item.classList.remove("active"));
         marker.classList.add("active");
 
+        officeChips.forEach((chip) => {
+          chip.classList.toggle("active", chip.dataset.officeCity === marker.dataset.city);
+        });
+
         if (mapInfo) {
           const city = marker.dataset.city || "Oficina seleccionada";
           const address = marker.dataset.address || "";
@@ -243,6 +319,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (planInterestInput) {
           planInterestInput.value = `Oficina TelcoSur en ${marker.dataset.city || "ciudad seleccionada"}`;
+        }
+      });
+    });
+
+    officeChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const marker = Array.from(mapMarkers).find((item) => item.dataset.city === chip.dataset.officeCity);
+
+        if (marker) {
+          marker.click();
+          marker.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
         }
       });
     });

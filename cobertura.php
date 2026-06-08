@@ -14,7 +14,9 @@
       <img src="assets/logo.png" alt="Logo de TelcoSur SPA" width="82" height="82">
     </a>
 
-    <nav class="navbar" aria-label="Navegación principal">
+    <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-main-menu"><span></span><span></span><span></span></button>
+
+    <nav class="navbar" id="mobile-main-menu" aria-label="Navegación principal">
       <a href="index.html#inicio">Inicio</a>
       <a href="servicios.php">Servicios</a>
       <a href="planes.php">Planes</a>
@@ -33,6 +35,11 @@
         <span class="badge">Oficinas TelcoSur</span>
         <h1>Explora las oficinas disponibles para trabajadores</h1>
         <p>Usa el mapa para acercar, desplazar y seleccionar una plaza. Cada marcador muestra dirección y ciudad de oficina.</p>
+        <div class="coverage-hero-stats" aria-label="Resumen de cobertura TelcoSur">
+          <article><strong>8</strong><span>plazas activas</span></article>
+          <article><strong>Sur</strong><span>zona prioritaria</span></article>
+          <article><strong>24/7</strong><span>consulta digital</span></article>
+        </div>
       </div>
     </section>
 
@@ -46,49 +53,44 @@
 
         <div class="map-stage" id="coverage-map-stage">
           <div class="map-canvas" id="coverage-map-canvas">
-            <img src="assets/mapa-regional-sur.png" alt="Mapa regional del sur de Chile con zonas de atención de TelcoSur SPA" width="920" height="620" loading="lazy" draggable="false">
+            <div class="map-live-badge">Mapa interactivo</div>
+            <img src="assets/mapa-regional-sur.png" alt="Mapa regional del sur de Chile con zonas de atencion de TelcoSur SPA" width="1024" height="1536" loading="lazy" draggable="false">
 
-            <button class="map-marker" type="button" style="left: 57%; top: 8%;" data-city="Santiago" data-address="Av Irarrázaval 2821 A Of 1110" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 72.5%; top: 8.2%;" data-city="Santiago" data-address="Av Irarrázaval 2821 A Of 1110" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Santiago
             </button>
 
-            <button class="map-marker" type="button" style="left: 55%; top: 14%;" data-city="Talca" data-address="1 Norte 931 Of 605" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 64.6%; top: 27%;" data-city="Talca" data-address="1 Norte 931 Of 605" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Talca
             </button>
 
-            <button class="map-marker" type="button" style="left: 53%; top: 20%;" data-city="Chillán" data-address="El Roble 627 Of 2, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 58.6%; top: 37.4%;" data-city="Chillán" data-address="El Roble 627 Of 2, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Chillán
             </button>
 
-            <button class="map-marker" type="button" style="left: 49%; top: 26%;" data-city="Concepción" data-address="Portales 530 Of 31" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 48%; top: 45.6%;" data-city="Concepción" data-address="Portales 530 Of 31" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Concepción
             </button>
-
-            <button class="map-marker" type="button" style="left: 52%; top: 31%;" data-city="Los Ángeles" data-address="Edificio del Desarrollo Lautaro 268 Of 303" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
-              <span></span>
-              Los Ángeles
-            </button>
-
-            <button class="map-marker" type="button" style="left: 54%; top: 38%;" data-city="Temuco" data-address="Manuel Bulnes 815 Of 402" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 51%; top: 58.1%;" data-city="Temuco" data-address="Manuel Bulnes 815 Of 402" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Temuco
             </button>
 
-            <button class="map-marker" type="button" style="left: 48%; top: 51%;" data-city="Valdivia" data-address="Independencia 630 Of 304, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 48.9%; top: 67.9%;" data-city="Valdivia" data-address="Independencia 630 Of 304, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Valdivia
             </button>
 
-            <button class="map-marker" type="button" style="left: 44%; top: 63%;" data-city="Osorno" data-address="Conrrado Anthauer 1190 Of D, 2do piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 48.9%; top: 77%;" data-city="Osorno" data-address="Conrrado Anthauer 1190 Of D, 2do piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Osorno
             </button>
 
-            <button class="map-marker" type="button" style="left: 39%; top: 78%;" data-city="Puerto Montt" data-address="Benavente N°540" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
+            <button class="map-marker" type="button" style="left: 49%; top: 87.2%;" data-city="Puerto Montt" data-address="Benavente N°540" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
               <span></span>
               Puerto Montt
             </button>
@@ -99,8 +101,26 @@
           <span>Oficina seleccionada</span>
           <h3>Elige una oficina del mapa</h3>
           <p>Haz clic en un marcador para ver la plaza y dirección de la oficina TelcoSur correspondiente.</p>
+          <div class="map-info-highlights"><b>Respuesta guiada</b><b>Datos de oficina</b><b>Consulta directa</b></div>
           <a href="contacto.php" class="btn-primary">Consultar oficina</a>
         </aside>
+        <div class="city-quick-panel" aria-label="Seleccion rapida de oficinas">
+          <div>
+            <span>Seleccion rapida</span>
+            <h2>Encuentra tu plaza en un clic</h2>
+            <p>Elige una ciudad para activar su marcador, ver la direccion y completar el formulario de cobertura.</p>
+          </div>
+          <div class="city-chip-list">
+            <button type="button" class="office-chip" data-office-city="Santiago">Santiago</button>
+            <button type="button" class="office-chip" data-office-city="Talca">Talca</button>
+            <button type="button" class="office-chip" data-office-city="Chillán">Chillan</button>
+            <button type="button" class="office-chip" data-office-city="Concepción">Concepcion</button>
+            <button type="button" class="office-chip" data-office-city="Temuco">Temuco</button>
+            <button type="button" class="office-chip" data-office-city="Valdivia">Valdivia</button>
+            <button type="button" class="office-chip" data-office-city="Osorno">Osorno</button>
+            <button type="button" class="office-chip" data-office-city="Puerto Montt">Puerto Montt</button>
+          </div>
+        </div>
       </div>
 
       <div class="coverage-grid">
@@ -167,6 +187,10 @@
     <p>Atención personalizada • Todos los derechos reservados © 2026</p>
   </footer>
 
+  <div class="mobile-action-bar" aria-label="Acciones rápidas móviles">
+    <a class="mobile-action-primary" href="planes.php#consulta-plan">Consultar plan</a>
+    <a href="#" class="mobile-action-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida."><img src="assets/logo-whatsapp.jpeg" alt="" aria-hidden="true">WhatsApp</a>
+  </div>
   <a href="#" class="floating-whatsapp" aria-label="Contactar a TelcoSur SPA por WhatsApp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida.">WhatsApp</a>
   <script src="js/main.js"></script>
 </body>

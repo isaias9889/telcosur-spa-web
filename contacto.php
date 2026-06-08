@@ -14,7 +14,9 @@
       <img src="assets/logo.png" alt="Logo de TelcoSur SPA" width="82" height="82">
     </a>
 
-    <nav class="navbar" aria-label="Navegación principal">
+    <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-main-menu"><span></span><span></span><span></span></button>
+
+    <nav class="navbar" id="mobile-main-menu" aria-label="Navegación principal">
       <a href="index.html#inicio">Inicio</a>
       <a href="servicios.php">Servicios</a>
       <a href="planes.php">Planes</a>
@@ -77,6 +79,10 @@
     <p>Atención personalizada • Todos los derechos reservados © 2026</p>
   </footer>
 
+  <div class="mobile-action-bar" aria-label="Acciones rápidas móviles">
+    <a class="mobile-action-primary" href="planes.php#consulta-plan">Consultar plan</a>
+    <a href="#" class="mobile-action-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida."><img src="assets/logo-whatsapp.jpeg" alt="" aria-hidden="true">WhatsApp</a>
+  </div>
   <a href="#" class="floating-whatsapp" aria-label="Contactar a TelcoSur SPA por WhatsApp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida.">WhatsApp</a>
   <script src="js/main.js"></script>
 </body>

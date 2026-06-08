@@ -14,7 +14,9 @@
       <img src="assets/logo.png" alt="Logo de TelcoSur SPA" width="82" height="82">
     </a>
 
-    <nav class="navbar" aria-label="Navegación principal">
+    <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-main-menu"><span></span><span></span><span></span></button>
+
+    <nav class="navbar" id="mobile-main-menu" aria-label="Navegación principal">
       <a href="index.html#inicio">Inicio</a>
       <a href="servicios.php">Servicios</a>
       <a href="planes.php">Planes</a>
@@ -42,21 +44,21 @@
           <span>Solo Internet</span>
           <h3>600 a 940 Megas</h3>
           <p>Para navegación diaria, teletrabajo, estudios, streaming y hogares con varios dispositivos.</p>
-          <a href="#solo-internet">Ver alternativas</a>
+          <a href="#solo-internet" data-plan-jump="solo-internet">Ver alternativas</a>
         </article>
 
         <article class="summary-card">
           <span>Internet + TV</span>
           <h3>Conectividad y entretenimiento</h3>
           <p>Una opción para familias que quieren internet estable y televisión en un solo flujo de contratación.</p>
-          <a href="#internet-tv">Ver alternativas</a>
+          <a href="#internet-tv" data-plan-jump="internet-tv">Ver alternativas</a>
         </article>
 
         <article class="summary-card">
           <span>Streaming</span>
           <h3>Planes para contenido digital</h3>
           <p>Opciones pensadas para series, películas, gaming y contenido en múltiples pantallas.</p>
-          <a href="#streaming">Ver alternativas</a>
+          <a href="#streaming" data-plan-jump="streaming">Ver alternativas</a>
         </article>
       </div>
     </section>
@@ -287,6 +289,10 @@
     <p>Atención personalizada • Todos los derechos reservados © 2026</p>
   </footer>
 
+  <div class="mobile-action-bar" aria-label="Acciones rápidas móviles">
+    <a class="mobile-action-primary" href="#consulta-plan">Consultar plan</a>
+    <a href="#" class="mobile-action-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida."><img src="assets/logo-whatsapp.jpeg" alt="" aria-hidden="true">WhatsApp</a>
+  </div>
   <a href="#" class="floating-whatsapp" aria-label="Contactar a TelcoSur SPA por WhatsApp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida.">WhatsApp</a>
   <script src="js/main.js"></script>
 </body>
