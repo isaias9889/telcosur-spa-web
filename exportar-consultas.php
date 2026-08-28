@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/admin-auth.php';
+adminRequireLogin();
 require __DIR__ . '/db.php';
 
 $registros = $pdo->query('SELECT fecha_consulta, nombre, telefono, comuna, plan_interes, mensaje FROM consultas_planes ORDER BY fecha_consulta DESC')->fetchAll();

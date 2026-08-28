@@ -1,65 +1,55 @@
-<!DOCTYPE html>
-<html lang="es-CL">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trabaja con Nosotros | TelcoSur SPA</title>
-  <meta name="description" content="Postula a oportunidades comerciales en TelcoSur SPA. Envía tus datos, adjunta tu CV y conoce el proceso de reclutamiento.">
-  <link rel="icon" type="image/png" href="assets/logo.png">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header class="header">
-    <a class="logo" href="index.html#inicio" aria-label="Ir al inicio de TelcoSur SPA">
-      <img src="assets/logo.png" alt="Logo de TelcoSur SPA" width="82" height="82">
-    </a>
+<?php
+require __DIR__ . '/security.php';
+$csrfToken = csrfToken();
 
-    <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-main-menu"><span></span><span></span><span></span></button>
+$pageTitle = 'Talento | TelcoSur';
+$pageDescription = 'Oportunidades laborales en TelcoSur. Únete a nuestros equipos comerciales como distribuidor Claro y VTR en el sur de Chile.';
+$activeNav = 'trabaja';
+$mobilePrimaryLabel = 'Postular';
+$mobilePrimaryHref = '#postulacion';
+$whatsappMessage = 'Hola TelcoSur SPA, quisiera postular o consultar oportunidades comerciales.';
+$floatingWhatsappMessage = $whatsappMessage;
+$mobilePrimaryLabel = 'Postular ahora';
+$mobilePrimaryHref = '#postulacion';
+$ogImage = 'https://telcosurspa.cl/assets/og/og-talento.jpg';
 
-    <nav class="navbar" id="mobile-main-menu" aria-label="Navegación principal">
-      <a href="index.html#inicio">Inicio</a>
-      <a href="servicios.php">Servicios</a>
-      <a href="planes.php">Planes</a>
-      <a href="trabaja-con-nosotros.php">Trabaja con nosotros</a>
-      <a href="cobertura.php">Cobertura</a>
-      <a href="sobre-nosotros.php">Sobre nosotros</a>
-      <a href="contacto.php">Contacto</a>
-    </nav>
+require __DIR__ . '/includes/layout-start.php';
+?>
 
-    <a href="#" class="btn-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera postular o consultar oportunidades comerciales.">WhatsApp</a>
-  </header>
+  <main id="contenido">
+    <?php
+    $breadcrumbItems = [
+        ['label' => 'Inicio', 'href' => 'index.php'],
+        ['label' => 'Talento', 'href' => 'trabaja-con-nosotros.php'],
+    ];
+    $heroEyebrow = 'Talento';
+    $heroTitle = 'Desarrolla tu carrera comercial con respaldo regional';
+    $heroLead = 'Formamos equipos que representan servicios Claro y VTR con capacitación, acompañamiento y cultura de equipo en el sur de Chile.';
+    $heroActions = [
+        ['href' => '#postulacion', 'label' => 'Postular ahora', 'class' => 'sl-btn-primary'],
+        ['href' => '#cargos', 'label' => 'Ver cargos', 'class' => 'sl-btn-outline'],
+    ];
+    require __DIR__ . '/includes/corp-page-hero.php';
+    ?>
 
-  <main>
-    <section class="page-hero talent-hero">
-      <div class="page-hero-inner">
-        <span class="badge">Talento comercial</span>
-        <h1>Construye ingresos vendiendo con respaldo, orden y acompañamiento</h1>
-        <p>Buscamos personas con actitud comercial, comunicación clara y ganas de crecer. En TelcoSur SPA tu postulación queda registrada, revisada y disponible para seguimiento interno.</p>
-        <div class="hero-buttons">
-          <a href="#postulacion" class="btn-primary">Postular ahora</a>
-          <a href="#cargos" class="btn-secondary">Ver cargos disponibles</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="journey-strip" aria-label="Indicadores del proceso de postulación">
+    <section class="corp-facts-strip" aria-label="Proceso de postulación">
       <article>
-        <strong>Postulación segura</strong>
-        <span>Datos guardados en MySQL</span>
+        <strong>Postulación en línea</strong>
+        <span>Formulario seguro con datos para revisión interna</span>
       </article>
       <article>
         <strong>CV adjunto</strong>
         <span>PDF, DOC o DOCX hasta 5 MB</span>
       </article>
       <article>
-        <strong>Estado inicial</strong>
-        <span>Recibida para revisión</span>
+        <strong>Seguimiento</strong>
+        <span>Contacto cuando el perfil calce con la vacante</span>
       </article>
     </section>
 
-    <section id="cargos" class="role-board anchor-section">
-      <div class="section-title compact">
-        <span>Cargos disponibles</span>
+    <section id="cargos" class="role-board corp-section anchor-section">
+      <div class="corp-section-head">
+        <span class="eyebrow">Cargos disponibles</span>
         <h2>Oportunidades para perfiles comerciales</h2>
         <p>Elige el cargo que mejor calce con tu experiencia y disponibilidad. Puedes postular aunque estés comenzando si tienes buena actitud y compromiso.</p>
       </div>
@@ -74,19 +64,7 @@
             <li>Capacitación inicial</li>
             <li>Seguimiento de oportunidades</li>
           </ul>
-          <a href="#postulacion" class="btn-primary" data-role-select="Ejecutivo comercial terreno">Postular a este cargo</a>
-        </article>
-
-        <article class="role-card highlighted">
-          <span>Atención</span>
-          <h3>Asesor de planes hogar</h3>
-          <p>Ideal para perfiles con buen trato, orden y capacidad de explicar opciones de internet, TV y entretenimiento.</p>
-          <ul>
-            <li>Orientación comercial clara</li>
-            <li>Comunicación con clientes interesados</li>
-            <li>Apoyo para cierre y seguimiento</li>
-          </ul>
-          <a href="#postulacion" class="btn-primary" data-role-select="Asesor de planes hogar">Postular a este cargo</a>
+          <a href="#postulacion" class="sl-btn-primary" data-role-select="Ejecutivo comercial terreno">Postular a este cargo</a>
         </article>
 
         <article class="role-card">
@@ -98,18 +76,18 @@
             <li>Seguimiento de metas y oportunidades</li>
             <li>Apoyo en cierres y gestión comercial</li>
           </ul>
-          <a href="#postulacion" class="btn-primary" data-role-select="Supervisor en venta">Postular a este cargo</a>
+          <a href="#postulacion" class="sl-btn-primary" data-role-select="Supervisor en venta">Postular a este cargo</a>
         </article>
       </div>
     </section>
 
-    <section class="process-section">
-      <div class="section-title compact">
-        <span>Proceso</span>
+    <section class="corp-process-section">
+      <div class="corp-section-head">
+        <span class="eyebrow">Proceso</span>
         <h2>Un flujo claro para postular sin fricción</h2>
       </div>
 
-      <div class="process-timeline">
+      <div class="corp-process-steps">
         <article>
           <strong>1</strong>
           <h3>Envías tus datos</h3>
@@ -128,14 +106,16 @@
       </div>
     </section>
 
-    <section id="postulacion" class="application-section anchor-section">
-      <div class="section-title compact">
-        <span>Postulación laboral</span>
+    <section id="postulacion" class="application-section corp-section anchor-section">
+      <div class="corp-section-head">
+        <span class="eyebrow">Postulación laboral</span>
         <h2>Completa tus datos y adjunta tu CV</h2>
         <p>La información se guardará para seguimiento interno. Para más seguridad, evita enviar datos sensibles que no sean necesarios para postular.</p>
       </div>
 
-      <form class="application-form" id="postulacion-form" action="postular.php" method="post" enctype="multipart/form-data">
+      <form class="application-form corp-form" id="postulacion-form" action="postular.php" method="post" enctype="multipart/form-data">
+        <?php require __DIR__ . '/includes/csrf-input.php'; ?>
+        <?php require __DIR__ . '/includes/honeypot-field.php'; ?>
         <div class="form-grid">
           <label>
             Nombre completo
@@ -159,7 +139,7 @@
 
           <label>
             Comuna o ciudad
-            <input type="text" name="comuna" autocomplete="address-level2" placeholder="Ej: Puerto Montt" required>
+            <input type="text" name="comuna" list="comunas-sur-list" autocomplete="address-level2" placeholder="Ej: Puerto Montt" required>
           </label>
 
           <label>
@@ -167,7 +147,6 @@
             <select name="cargo" id="cargo-interes" required>
               <option value="">Selecciona un cargo</option>
               <option value="Ejecutivo comercial terreno">Ejecutivo comercial terreno</option>
-              <option value="Asesor de planes hogar">Asesor de planes hogar</option>
               <option value="Supervisor en venta">Supervisor en venta</option>
             </select>
           </label>
@@ -210,35 +189,45 @@
           Acepto que TelcoSur SPA almacene mis datos para gestionar esta postulación.
         </label>
 
+        <?php require __DIR__ . '/includes/turnstile-field.php'; ?>
+
         <div class="form-actions">
-          <button type="submit" class="btn-primary" name="canal" value="correo">Enviar postulación</button>
-          <button type="submit" class="btn-outline dark-outline" name="canal" value="whatsapp">Enviar por WhatsApp</button>
+          <button type="submit" class="sl-btn-primary" name="canal" value="correo">Enviar postulación</button>
+          <button type="submit" class="sl-btn-outline" name="canal" value="whatsapp">Enviar por WhatsApp</button>
         </div>
 
         <p class="form-success" id="postulacion-success" hidden>Se abrió el canal de contacto con tu postulación lista para enviar.</p>
+        <p class="corp-form-note">TelcoSur revisará tu postulación y te contactará si tu perfil calza con las vacantes disponibles.</p>
       </form>
+      <?php require __DIR__ . '/includes/corp-comunas-datalist.php'; ?>
     </section>
 
-    <section class="secure-note">
-      <div>
-        <span class="section-tag">Datos y privacidad</span>
-        <h2>Recomendación para producción</h2>
-        <p>Cuando el sitio esté en hosting, usa HTTPS, limita acceso al panel administrativo y guarda los CV fuera de carpetas públicas si manejas información sensible de candidatos.</p>
+    <section class="corp-talent" aria-label="Por qué TelcoSur">
+      <div class="corp-talent-inner">
+        <div>
+          <span class="corp-hero-kicker">Cultura TelcoSur</span>
+          <h2>Marcas líderes, operación regional y acompañamiento profesional</h2>
+          <p>Como distribuidor Claro y VTR ofrecemos formación en productos, presencia en ocho ciudades y un entorno orientado al desarrollo comercial.</p>
+          <a href="#postulacion" class="sl-btn-primary">Completar postulación</a>
+        </div>
+        <aside class="corp-talent-card">
+          <h3>Lo que ofrecemos</h3>
+          <ul>
+            <li>Capacitación en productos Claro y VTR</li>
+            <li>Acompañamiento en terreno</li>
+            <li>Plazas comerciales en el sur de Chile</li>
+          </ul>
+        </aside>
       </div>
-      <a href="contacto.php" class="btn-secondary">Hablar con TelcoSur SPA</a>
     </section>
+
+    <?php
+    $ctaTitle = '¿Te interesa unirte al equipo?';
+    $ctaLead = 'Revisa las oportunidades disponibles y completa tu postulación en línea.';
+    $ctaHref = '#postulacion';
+    $ctaLabel = 'Postular ahora';
+    require __DIR__ . '/includes/corp-cta-band.php';
+    ?>
   </main>
 
-  <footer class="footer">
-    <p><strong>TelcoSur SPA</strong> - Servicios de telecomunicaciones para hogares y oportunidades comerciales</p>
-    <p>Atención personalizada • Todos los derechos reservados © 2026</p>
-  </footer>
-
-  <div class="mobile-action-bar" aria-label="Acciones rápidas móviles">
-    <a class="mobile-action-primary" href="planes.php#consulta-plan">Consultar plan</a>
-    <a href="#" class="mobile-action-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida."><img src="assets/logo-whatsapp.jpeg" alt="" aria-hidden="true">WhatsApp</a>
-  </div>
-  <a href="#" class="floating-whatsapp" aria-label="Contactar a TelcoSur SPA por WhatsApp" data-whatsapp-message="Hola TelcoSur SPA, quisiera postular o consultar oportunidades comerciales.">WhatsApp</a>
-  <script src="js/main.js"></script>
-</body>
-</html>
+<?php require __DIR__ . '/includes/layout-end.php'; ?>

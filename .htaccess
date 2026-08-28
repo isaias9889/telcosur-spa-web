@@ -1,0 +1,133 @@
+DirectoryIndex index.php index.html
+
+
+
+# Página de error personalizada
+
+ErrorDocument 404 /404.php
+
+
+
+# HTTPS solo en producción (localhost/XAMPP sigue en HTTP)
+
+<IfModule mod_rewrite.c>
+
+  RewriteEngine On
+
+  RewriteCond %{HTTPS} !=on
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?telcosurspa\.cl$ [NC]
+
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+</IfModule>
+
+
+
+<IfModule mod_headers.c>
+
+  Header set X-Content-Type-Options "nosniff"
+
+  Header set X-Frame-Options "SAMEORIGIN"
+
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+
+
+
+  # CSP: fuentes locales; GA + Turnstile solo si se usan.
+
+  Header set Content-Security-Policy "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com; connect-src 'self' https://www.google-analytics.com https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+
+
+
+  # HSTS solo en telcosurspa.cl con HTTPS activo
+
+  <If "%{HTTPS} == 'on' && (%{HTTP_HOST} == 'telcosurspa.cl' || %{HTTP_HOST} == 'www.telcosurspa.cl')">
+
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  </If>
+
+</IfModule>
+
+
+
+# Bloquear listado de directorios
+
+Options -Indexes
+
+
+
+# Proteger archivos sensibles
+
+<FilesMatch "(^\.|composer\.(json|lock)|(db|mail-config|admin-config|site-config)\.php|\.example\.php$)">
+
+  Require all denied
+
+</FilesMatch>
+
+
+
+# Tipo MIME correcto para fuentes woff2
+
+<IfModule mod_mime.c>
+
+  AddType font/woff2 .woff2
+
+</IfModule>
+
+
+
+# Compresión de texto (CSS, JS, HTML, SVG, JSON). Requiere mod_filter + mod_deflate en Apache.
+
+<IfModule mod_filter.c>
+
+<IfModule mod_deflate.c>
+
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/javascript
+
+  AddOutputFilterByType DEFLATE application/json application/xml application/rss+xml
+
+  AddOutputFilterByType DEFLATE image/svg+xml
+
+</IfModule>
+
+</IfModule>
+
+
+
+# Caché de estáticos (CSS/JS versionados con ?v=; imágenes/fuentes de larga duración)
+
+<IfModule mod_expires.c>
+
+  ExpiresActive On
+
+  ExpiresByType text/css "access plus 1 year"
+
+  ExpiresByType application/javascript "access plus 1 year"
+
+  ExpiresByType text/javascript "access plus 1 year"
+
+  ExpiresByType image/jpeg "access plus 6 months"
+
+  ExpiresByType image/png "access plus 6 months"
+
+  ExpiresByType image/webp "access plus 6 months"
+
+  ExpiresByType image/avif "access plus 6 months"
+
+  ExpiresByType image/svg+xml "access plus 6 months"
+
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+
+  ExpiresByType font/woff2 "access plus 1 year"
+
+</IfModule>
+
+

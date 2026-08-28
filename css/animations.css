@@ -1,0 +1,427 @@
+/* =========================================
+   TelcoSur — Sistema de animaciones
+   Ajustes globales: edita las variables --anim-*
+========================================= */
+:root {
+  --anim-duration: 0.72s;
+  --anim-duration-fast: 0.48s;
+  --anim-duration-slow: 0.95s;
+  --anim-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --anim-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --anim-stagger: 0.11s;
+  --anim-distance: 26px;
+  --anim-scale-from: 0.97;
+}
+
+@keyframes animFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--anim-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes animFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes animScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(var(--anim-scale-from));
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes animBenefitIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes animFeaturedGlow {
+  0%, 100% { box-shadow: 0 16px 40px rgba(196, 30, 58, 0.12); }
+  50% { box-shadow: 0 22px 48px rgba(196, 30, 58, 0.2); }
+}
+
+@keyframes animMarkerRing {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes animMapInfoIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Hero: entrada al cargar --- */
+.js-anim .anim-hero__item {
+  opacity: 0;
+  transform: translateY(var(--anim-distance));
+}
+
+.js-anim .anim-hero.is-ready .anim-hero__item {
+  animation: animFadeUp var(--anim-duration) var(--anim-ease) forwards;
+  animation-delay: calc(var(--anim-i, 0) * var(--anim-stagger));
+}
+
+.js-anim .sl-hero-media img {
+  transform: scale(1.06);
+}
+
+.js-anim .anim-hero.is-ready .sl-hero-media img {
+  transition: transform 1.4s var(--anim-ease-out);
+  transform: scale(1.02);
+}
+
+/* --- Scroll reveal --- */
+.js-anim .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(calc(var(--anim-distance) * 0.85));
+  transition:
+    opacity var(--anim-duration) var(--anim-ease),
+    transform var(--anim-duration) var(--anim-ease);
+  transition-delay: calc(var(--anim-i, 0) * var(--anim-stagger));
+  will-change: opacity, transform;
+}
+
+.js-anim .reveal-on-scroll.reveal-scale {
+  transform: translateY(calc(var(--anim-distance) * 0.6)) scale(var(--anim-scale-from));
+}
+
+.js-anim .reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.js-anim .anim-section.is-visible .corp-section-head {
+  animation: animFadeUp var(--anim-duration) var(--anim-ease) forwards;
+}
+
+/* --- Botones CTA --- */
+.sl-btn-primary,
+.sl-btn-outline,
+.sl-btn-ghost,
+.sl-btn-ghost-on-dark,
+.btn-primary,
+.btn-contact,
+.plan-btn,
+.corp-site .footer-cta {
+  transition:
+    transform var(--anim-duration-fast) var(--anim-ease),
+    box-shadow var(--anim-duration-fast) var(--anim-ease),
+    background var(--anim-duration-fast) ease,
+    border-color var(--anim-duration-fast) ease,
+    color var(--anim-duration-fast) ease;
+}
+
+@media (hover: hover) {
+  .sl-btn-primary:hover,
+  .btn-primary:hover,
+  .plan-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(196, 30, 58, 0.28);
+  }
+
+  .sl-btn-outline:hover,
+  .sl-btn-ghost:hover,
+  .sl-btn-ghost-on-dark:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(13, 27, 42, 0.18);
+  }
+}
+
+.sl-btn-primary:active,
+.plan-btn:active,
+.btn-primary:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* --- Tarjetas de planes --- */
+.corp-plan-card {
+  transition:
+    transform var(--anim-duration-fast) var(--anim-ease),
+    box-shadow var(--anim-duration-fast) var(--anim-ease),
+    border-color var(--anim-duration-fast) ease;
+}
+
+@media (hover: hover) {
+  .corp-plan-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 44px rgba(13, 27, 42, 0.12);
+    border-color: rgba(13, 27, 42, 0.14) !important;
+  }
+
+  .corp-plan-card--featured:hover {
+    border-color: rgba(196, 30, 58, 0.45) !important;
+  }
+}
+
+.corp-plan-card--featured {
+  animation: animFeaturedGlow 4s var(--anim-ease) infinite;
+}
+
+.corp-plan-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-brand), #e8334f);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(196, 30, 58, 0.35);
+  white-space: nowrap;
+}
+
+.corp-plan-card--featured .corp-plan-tier {
+  margin-top: 8px;
+}
+
+/* --- Beneficios --- */
+.corp-benefits {
+  padding: 64px 7%;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+}
+
+.corp-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.corp-benefit-card {
+  padding: 26px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  transition:
+    transform var(--anim-duration-fast) var(--anim-ease),
+    box-shadow var(--anim-duration-fast) var(--anim-ease),
+    border-color var(--anim-duration-fast) ease;
+}
+
+.corp-benefit-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0, 93, 255, 0.1), rgba(0, 174, 239, 0.14));
+  color: #005dff;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.js-anim .corp-benefit-card.is-visible .corp-benefit-icon {
+  animation: animBenefitIcon 2.8s var(--anim-ease) infinite;
+  animation-delay: calc(var(--anim-i, 0) * 0.15s);
+}
+
+@media (hover: hover) {
+  .corp-benefit-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 93, 255, 0.22);
+    box-shadow: 0 18px 36px rgba(13, 27, 42, 0.1);
+  }
+}
+
+.corp-benefit-card h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: var(--color-heading);
+}
+
+.corp-benefit-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
+/* --- Estadísticas / confianza --- */
+.corp-highlight-strip article,
+.corp-trust-stats article {
+  transition: transform var(--anim-duration-fast) var(--anim-ease);
+}
+
+.js-anim .corp-highlight-strip.is-visible article,
+.js-anim .corp-trust-stats.is-visible article {
+  animation: animScaleIn var(--anim-duration) var(--anim-ease) forwards;
+  animation-delay: calc(var(--anim-i, 0) * var(--anim-stagger));
+  opacity: 0;
+}
+
+.js-anim .corp-highlight-strip.is-visible article.is-visible,
+.js-anim .corp-trust-stats.is-visible article.is-visible {
+  opacity: 1;
+}
+
+.corp-trust-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 7% 56px;
+}
+
+.corp-trust-stats article {
+  padding: 28px 22px;
+  border-radius: 18px;
+  border: 1px solid var(--color-border);
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  border-top: 3px solid rgba(0, 93, 255, 0.35);
+}
+
+.corp-trust-stats strong {
+  display: block;
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--color-heading);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.corp-trust-stats span {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* --- Mapa --- */
+.map-marker span.map-marker-pin {
+  position: relative;
+}
+
+.map-marker span.map-marker-pin::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50% 50% 50% 0;
+  border: 2px solid rgba(196, 30, 58, 0.35);
+  animation: animMarkerRing 2.2s var(--anim-ease) infinite;
+  pointer-events: none;
+}
+
+.map-marker.active span.map-marker-pin::after,
+.map-marker:hover span.map-marker-pin::after {
+  border-color: rgba(13, 34, 71, 0.45);
+}
+
+.map-info.is-updating {
+  animation: animMapInfoIn var(--anim-duration-fast) var(--anim-ease);
+}
+
+.corp-site .interactive-map.is-visible {
+  animation: animScaleIn var(--anim-duration-slow) var(--anim-ease) forwards;
+}
+
+/* --- Tarjetas generales --- */
+.sl-value-card,
+.sl-news-card,
+.corp-pillar,
+.corp-contact-card,
+.corp-team-card,
+.corp-team-card--link {
+  transition:
+    transform var(--anim-duration-fast) var(--anim-ease),
+    box-shadow var(--anim-duration-fast) var(--anim-ease),
+    border-color var(--anim-duration-fast) ease;
+}
+
+@media (hover: hover) {
+  .corp-team-card--link:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-strong);
+  }
+}
+
+/* --- Accesibilidad --- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --anim-duration: 0.01ms;
+    --anim-duration-fast: 0.01ms;
+    --anim-duration-slow: 0.01ms;
+    --anim-stagger: 0ms;
+    --anim-distance: 0px;
+    --anim-scale-from: 1;
+  }
+
+  .js-anim .reveal-on-scroll,
+  .js-anim .anim-hero__item,
+  .js-anim .corp-highlight-strip article,
+  .js-anim .corp-trust-stats article {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .corp-plan-card--featured,
+  .map-marker span::after,
+  .corp-benefit-icon {
+    animation: none !important;
+  }
+
+  .sl-hero-media img {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .corp-benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .corp-trust-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .corp-benefits-grid,
+  .corp-trust-stats {
+    grid-template-columns: 1fr;
+  }
+}

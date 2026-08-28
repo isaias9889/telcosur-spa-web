@@ -1,0 +1,21 @@
+{
+  "name": "telcosur-spa-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build de assets (CSS/JS) y auditoría para el sitio TelcoSur SPA.",
+  "scripts": {
+    "build": "node scripts/build-assets.js",
+    "audit": "node scripts/lighthouse-audit.js",
+    "optimize:png": "powershell -ExecutionPolicy Bypass -File scripts/optimize-png.ps1",
+    "optimize:avif": "powershell -ExecutionPolicy Bypass -File scripts/generate-avif.ps1",
+    "optimize:svg": "svgo -f assets --recursive"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "clean-css": "^5.3.3",
+    "lighthouse": "^12.2.1",
+    "postcss": "^8.4.47",
+    "svgo": "^4.0.1",
+    "terser": "^5.36.0"
+  }
+}

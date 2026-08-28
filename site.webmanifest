@@ -1,0 +1,21 @@
+{
+  "name": "TelcoSur SPA",
+  "short_name": "TelcoSur",
+  "description": "Distribuidor autorizado Claro y VTR en el sur de Chile.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1b2a",
+  "theme_color": "#0d1b2a",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

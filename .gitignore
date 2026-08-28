@@ -9,6 +9,7 @@ Desktop.ini
 
 # Local exports
 *.csv
+zap-quick-report.html
 
 # Private candidate uploads
 uploads/cv/*
@@ -18,5 +19,29 @@ uploads/cv/*
 .vscode/
 .idea/
 
+# Node / build
+node_modules/
+reports/
+
+# Composer / vendor
+vendor/
+.php-cs-fixer.cache
+
 # Logs
 *.log
+
+# Credentials (use *.example.php templates)
+admin-config.php
+db.php
+mail-config.php
+site-config.php
+
+# Production build output
+dist/
+
+# Rate limit cache
+storage/rate-limit/*
+!storage/rate-limit/.gitkeep
+
+# Sistema de ingresos (proyecto aparte: telcosur-ingresos)
+ingresos/

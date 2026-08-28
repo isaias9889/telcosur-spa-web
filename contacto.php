@@ -1,89 +1,138 @@
-<!DOCTYPE html>
-<html lang="es-CL">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto | TelcoSur SPA</title>
-  <meta name="description" content="Contacta a TelcoSur SPA por WhatsApp, consulta planes, revisa cobertura o envía tu postulación comercial.">
-  <link rel="icon" type="image/png" href="assets/logo.png">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header class="header">
-    <a class="logo" href="index.html#inicio" aria-label="Ir al inicio de TelcoSur SPA">
-      <img src="assets/logo.png" alt="Logo de TelcoSur SPA" width="82" height="82">
-    </a>
+<?php
+require __DIR__ . '/security.php';
+csrfToken();
 
-    <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-main-menu"><span></span><span></span><span></span></button>
+$pageTitle = 'Contacto | TelcoSur';
+$pageDescription = 'Contacta a TelcoSur. Información corporativa, consultas generales y canales oficiales de comunicación.';
+$activeNav = 'contacto';
+$ogImage = 'https://telcosurspa.cl/assets/og/og-contacto.jpg';
 
-    <nav class="navbar" id="mobile-main-menu" aria-label="Navegación principal">
-      <a href="index.html#inicio">Inicio</a>
-      <a href="servicios.php">Servicios</a>
-      <a href="planes.php">Planes</a>
-      <a href="trabaja-con-nosotros.php">Trabaja con nosotros</a>
-      <a href="cobertura.php">Cobertura</a>
-      <a href="sobre-nosotros.php">Sobre nosotros</a>
-      <a href="contacto.php">Contacto</a>
-    </nav>
+require __DIR__ . '/includes/layout-start.php';
+?>
 
-    <a href="#" class="btn-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta.">WhatsApp</a>
-  </header>
+  <main id="contenido">
+    <?php
+    $breadcrumbItems = [
+        ['label' => 'Inicio', 'href' => 'index.php'],
+        ['label' => 'Contacto', 'href' => 'contacto.php'],
+    ];
+    $heroEyebrow = 'Contacto';
+    $heroTitle = 'Canales oficiales de TelcoSur';
+    $heroLead = 'Escríbenos para consultas corporativas, información sobre servicios, cobertura u oportunidades de colaboración.';
+    require __DIR__ . '/includes/corp-page-hero.php';
+    ?>
 
-  <main>
-    <section class="page-hero">
-      <div class="page-hero-inner">
-        <span class="badge">Contacto</span>
-        <h1>Elige el canal correcto y avancemos</h1>
-        <p>Centralizamos consultas de planes, cobertura y postulaciones para responder con más orden y rapidez.</p>
+    <section class="corp-section alt anim-section reveal-on-scroll">
+      <div class="corp-section-head">
+        <span class="eyebrow">Cómo contactarnos</span>
+        <h2>Selecciona el canal según tu consulta</h2>
       </div>
-    </section>
-
-    <section class="plan-summary">
-      <div class="plan-summary-grid">
-        <article class="summary-card">
-          <span>Planes</span>
-          <h3>Quiero contratar</h3>
-          <p>Déjanos tus datos para revisar disponibilidad y el plan que más conviene a tu hogar.</p>
-          <a href="planes.php#consulta-plan">Consultar plan</a>
+      <div class="corp-contact-grid anim-stagger">
+        <article class="corp-contact-card reveal-on-scroll">
+          <h3>Información corporativa</h3>
+          <p>Consultas sobre TelcoSur, nuestra operación regional y alianzas comerciales.</p>
+          <p class="corp-contact-meta">WhatsApp corporativo</p>
+          <a href="#" class="sl-btn-primary contact-link" data-whatsapp-message="Hola TelcoSur, quisiera más información sobre la empresa.">Escribir por WhatsApp</a>
         </article>
-        <article class="summary-card">
-          <span>Cobertura</span>
-          <h3>Revisar dirección</h3>
-          <p>Usa el mapa interactivo y deja tu comuna, sector o dirección de referencia.</p>
-          <a href="cobertura.php#consulta-plan">Consultar cobertura</a>
+        <article class="corp-contact-card reveal-on-scroll">
+          <h3>Cobertura y servicios</h3>
+          <p>Disponibilidad técnica, oficinas y orientación sobre servicios hogar Claro y VTR.</p>
+          <p class="corp-contact-meta">Formulario de cobertura</p>
+          <a href="cobertura.php#consulta-plan" class="sl-btn-outline">Solicitar información</a>
         </article>
-        <article class="summary-card">
-          <span>Postulación</span>
-          <h3>Quiero vender</h3>
-          <p>Completa tu postulación o escribe al correo dedicado para oportunidades comerciales.</p>
-          <a href="trabaja-con-nosotros.php">Postular</a>
+        <article class="corp-contact-card reveal-on-scroll">
+          <h3>Talento y postulaciones</h3>
+          <p>Oportunidades para integrar equipos comerciales en el sur de Chile.</p>
+          <p class="corp-contact-meta">postulaciones@telcosurspa.cl</p>
+          <a href="trabaja-con-nosotros.php" class="sl-btn-outline">Ver oportunidades</a>
+        </article>
+        <article class="corp-contact-card reveal-on-scroll">
+          <h3>Oficinas regionales</h3>
+          <p>Plazas comerciales desde Santiago hasta Puerto Montt.</p>
+          <p class="corp-contact-meta">8 ciudades</p>
+          <a href="cobertura.php" class="sl-btn-outline">Ver ubicaciones</a>
         </article>
       </div>
     </section>
 
-    <section class="contact-section">
-      <div>
-        <span class="section-tag dark-tag">Canales directos</span>
-        <h2>WhatsApp y correo de postulaciones</h2>
-        <p>Para consultas rápidas usa WhatsApp. Para postulaciones comerciales también puedes escribir a postulaciones@telcosurspa.cl.</p>
+    <section id="formulario-contacto" class="application-section corp-section anchor-section anim-section reveal-on-scroll">
+      <div class="corp-section-head">
+        <span class="eyebrow">Escríbenos</span>
+        <h2>Formulario de contacto</h2>
+        <p>Completa el formulario y nuestro equipo te responderá en días hábiles.</p>
       </div>
-      <div class="contact-actions">
-        <a href="#" class="btn-whatsapp big" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta.">Contactar por WhatsApp</a>
-        <a href="mailto:postulaciones@telcosurspa.cl" class="btn-secondary">Enviar postulación</a>
+      <form class="application-form corp-form" id="contacto-form" action="contacto-enviar.php" method="post">
+        <?php require __DIR__ . '/includes/csrf-input.php'; ?>
+        <?php require __DIR__ . '/includes/honeypot-field.php'; ?>
+        <div class="form-grid">
+          <label>
+            Nombre completo
+            <input type="text" name="nombre" autocomplete="name" required placeholder="Ej: Camila Muñoz">
+          </label>
+          <label>
+            Teléfono
+            <input type="tel" name="telefono" autocomplete="tel" required placeholder="Ej: +56 9 1234 5678">
+          </label>
+          <label>
+            Correo (opcional)
+            <input type="email" name="correo" autocomplete="email" placeholder="Ej: nombre@correo.cl">
+          </label>
+          <label>
+            Comuna o ciudad (opcional)
+            <input type="text" name="comuna" list="comunas-sur-list" autocomplete="address-level2" placeholder="Ej: Temuco">
+          </label>
+          <label class="full-field">
+            Motivo de consulta
+            <select name="asunto" required>
+              <option value="">Selecciona un motivo</option>
+              <option value="Información corporativa">Información corporativa</option>
+              <option value="Cobertura y servicios hogar">Cobertura y servicios hogar</option>
+              <option value="Talento y postulaciones">Talento y postulaciones</option>
+              <option value="Otra consulta">Otra consulta</option>
+            </select>
+          </label>
+        </div>
+        <label class="full-field">
+          Mensaje
+          <textarea name="mensaje" rows="5" required placeholder="Cuéntanos en qué podemos ayudarte."></textarea>
+        </label>
+        <label class="consent-field">
+          <input type="checkbox" required>
+          Acepto el tratamiento de mis datos según la <a href="privacidad.php">política de privacidad</a>.
+        </label>
+        <?php require __DIR__ . '/includes/turnstile-field.php'; ?>
+        <div class="form-actions">
+          <button type="submit" class="sl-btn-primary">Enviar mensaje</button>
+          <a href="#" class="sl-btn-outline contact-link" data-whatsapp-message="Hola TelcoSur, quisiera contactarlos.">WhatsApp</a>
+        </div>
+        <p class="corp-form-note">También puedes escribirnos por WhatsApp si prefieres una respuesta más rápida.</p>
+      </form>
+      <?php require __DIR__ . '/includes/corp-comunas-datalist.php'; ?>
+    </section>
+
+    <section class="corp-section">
+      <div class="corp-split">
+        <div class="corp-split-copy">
+          <span class="corp-hero-kicker">TelcoSur SPA</span>
+          <h2>Distribuidor autorizado Claro y VTR</h2>
+          <p><em>Cerca de ti, cerca de todos.</em> Impulsamos conectividad hogar y desarrollo comercial con presencia regional y procesos transparentes.</p>
+        </div>
+        <aside class="corp-panel">
+          <h3>Horario de respuesta</h3>
+          <p>Procesamos consultas en días hábiles. Para postulaciones laborales, contactamos cuando el perfil calce con nuestras vacantes.</p>
+        </aside>
       </div>
     </section>
+
+    <?php require_once __DIR__ . '/includes/salesland-brands.php'; ?>
+
+    <?php
+    $ctaTitle = '¿Prefieres ver nuestras oficinas?';
+    $ctaLead = 'Consulta el mapa interactivo con las 8 plazas comerciales en el sur de Chile.';
+    $ctaHref = 'cobertura.php';
+    $ctaLabel = 'Ver cobertura';
+    require __DIR__ . '/includes/corp-cta-band.php';
+    ?>
   </main>
 
-  <footer class="footer">
-    <p><strong>TelcoSur SPA</strong> - Servicios de telecomunicaciones para hogares y oportunidades comerciales</p>
-    <p>Atención personalizada • Todos los derechos reservados © 2026</p>
-  </footer>
-
-  <div class="mobile-action-bar" aria-label="Acciones rápidas móviles">
-    <a class="mobile-action-primary" href="planes.php#consulta-plan">Consultar plan</a>
-    <a href="#" class="mobile-action-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida."><img src="assets/logo-whatsapp.jpeg" alt="" aria-hidden="true">WhatsApp</a>
-  </div>
-  <a href="#" class="floating-whatsapp" aria-label="Contactar a TelcoSur SPA por WhatsApp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida.">WhatsApp</a>
-  <script src="js/main.js"></script>
-</body>
-</html>
+<?php require __DIR__ . '/includes/layout-end.php'; ?>

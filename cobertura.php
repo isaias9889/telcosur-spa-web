@@ -1,127 +1,38 @@
-<!DOCTYPE html>
-<html lang="es-CL">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oficinas y Cobertura | TelcoSur SPA</title>
-  <meta name="description" content="Revisa las oficinas TelcoSur SPA para trabajadores y usa el mapa interactivo para consultar plazas, direcciones y cobertura.">
-  <link rel="icon" type="image/png" href="assets/logo.png">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header class="header">
-    <a class="logo" href="index.html#inicio" aria-label="Ir al inicio de TelcoSur SPA">
-      <img src="assets/logo.png" alt="Logo de TelcoSur SPA" width="82" height="82">
-    </a>
+<?php
+require __DIR__ . '/security.php';
+$csrfToken = csrfToken();
 
-    <button class="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-main-menu"><span></span><span></span><span></span></button>
+$pageTitle = 'Oficinas y Cobertura | TelcoSur SPA - Claro y VTR';
+$pageDescription = 'Oficinas TelcoSur SPA y cobertura regional. Distribuidor Claro y VTR con presencia en el sur de Chile.';
+$activeNav = 'cobertura';
+$ogImage = 'https://telcosurspa.cl/assets/og/og-cobertura.jpg';
+$whatsappMessage = 'Hola TelcoSur SPA, quisiera consultar cobertura.';
 
-    <nav class="navbar" id="mobile-main-menu" aria-label="Navegación principal">
-      <a href="index.html#inicio">Inicio</a>
-      <a href="servicios.php">Servicios</a>
-      <a href="planes.php">Planes</a>
-      <a href="trabaja-con-nosotros.php">Trabaja con nosotros</a>
-      <a href="cobertura.php">Cobertura</a>
-      <a href="sobre-nosotros.php">Sobre nosotros</a>
-      <a href="contacto.php">Contacto</a>
-    </nav>
+require __DIR__ . '/includes/layout-start.php';
+?>
 
-    <a href="#" class="btn-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera consultar cobertura.">WhatsApp</a>
-  </header>
+  <main id="contenido">
+    <?php
+    $breadcrumbItems = [
+        ['label' => 'Inicio', 'href' => 'index.php'],
+        ['label' => 'Cobertura', 'href' => 'cobertura.php'],
+    ];
+    $heroEyebrow = 'Presencia regional';
+    $heroTitle = 'Oficinas y cobertura TelcoSur';
+    $heroLead = 'Plazas comerciales en el sur de Chile para coordinar operaciones, talento y orientación sobre servicios hogar Claro y VTR.';
+    $heroStats = [
+        ['value' => '8', 'label' => 'plazas comerciales'],
+        ['value' => 'Sur', 'label' => 'zona de operación'],
+        ['value' => '2', 'label' => 'marcas asociadas'],
+    ];
+    require __DIR__ . '/includes/corp-page-hero.php';
+    ?>
 
-  <main>
-    <section class="page-hero">
-      <div class="page-hero-inner">
-        <span class="badge">Oficinas TelcoSur</span>
-        <h1>Explora las oficinas disponibles para trabajadores</h1>
-        <p>Usa el mapa para acercar, desplazar y seleccionar una plaza. Cada marcador muestra dirección y ciudad de oficina.</p>
-        <div class="coverage-hero-stats" aria-label="Resumen de cobertura TelcoSur">
-          <article><strong>8</strong><span>plazas activas</span></article>
-          <article><strong>Sur</strong><span>zona prioritaria</span></article>
-          <article><strong>24/7</strong><span>consulta digital</span></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="cobertura" class="coverage-page-layout anchor-section">
-      <div class="interactive-map" aria-label="Mapa interactivo de cobertura regional sur de TelcoSur SPA">
-        <div class="map-toolbar" aria-label="Controles del mapa">
-          <button type="button" class="map-control" data-map-zoom="in" aria-label="Acercar mapa">+</button>
-          <button type="button" class="map-control" data-map-zoom="out" aria-label="Alejar mapa">-</button>
-          <button type="button" class="map-control wide" data-map-reset aria-label="Restablecer mapa">Centrar</button>
-        </div>
-
-        <div class="map-stage" id="coverage-map-stage">
-          <div class="map-canvas" id="coverage-map-canvas">
-            <div class="map-live-badge">Mapa interactivo</div>
-            <img src="assets/mapa-regional-sur.png" alt="Mapa regional del sur de Chile con zonas de atencion de TelcoSur SPA" width="1024" height="1536" loading="lazy" draggable="false">
-
-            <button class="map-marker" type="button" style="left: 72.5%; top: 8.2%;" data-city="Santiago" data-address="Av Irarrázaval 2821 A Of 1110" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
-              <span></span>
-              Santiago
-            </button>
-
-            <button class="map-marker" type="button" style="left: 64.6%; top: 27%;" data-city="Talca" data-address="1 Norte 931 Of 605" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
-              <span></span>
-              Talca
-            </button>
-
-            <button class="map-marker" type="button" style="left: 58.6%; top: 37.4%;" data-city="Chillán" data-address="El Roble 627 Of 2, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
-              <span></span>
-              Chillán
-            </button>
-
-            <button class="map-marker" type="button" style="left: 48%; top: 45.6%;" data-city="Concepción" data-address="Portales 530 Of 31" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
-              <span></span>
-              Concepción
-            </button>
-            <button class="map-marker" type="button" style="left: 51%; top: 58.1%;" data-city="Temuco" data-address="Manuel Bulnes 815 Of 402" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
-              <span></span>
-              Temuco
-            </button>
-
-            <button class="map-marker" type="button" style="left: 48.9%; top: 67.9%;" data-city="Valdivia" data-address="Independencia 630 Of 304, 3er piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
-              <span></span>
-              Valdivia
-            </button>
-
-            <button class="map-marker" type="button" style="left: 48.9%; top: 77%;" data-city="Osorno" data-address="Conrrado Anthauer 1190 Of D, 2do piso" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
-              <span></span>
-              Osorno
-            </button>
-
-            <button class="map-marker" type="button" style="left: 49%; top: 87.2%;" data-city="Puerto Montt" data-address="Benavente N°540" data-detail="Oficina TelcoSur para trabajadores y coordinación comercial.">
-              <span></span>
-              Puerto Montt
-            </button>
-          </div>
-        </div>
-
-        <aside class="map-info" id="coverage-map-info" aria-live="polite">
-          <span>Oficina seleccionada</span>
-          <h3>Elige una oficina del mapa</h3>
-          <p>Haz clic en un marcador para ver la plaza y dirección de la oficina TelcoSur correspondiente.</p>
-          <div class="map-info-highlights"><b>Respuesta guiada</b><b>Datos de oficina</b><b>Consulta directa</b></div>
-          <a href="contacto.php" class="btn-primary">Consultar oficina</a>
-        </aside>
-        <div class="city-quick-panel" aria-label="Seleccion rapida de oficinas">
-          <div>
-            <span>Seleccion rapida</span>
-            <h2>Encuentra tu plaza en un clic</h2>
-            <p>Elige una ciudad para activar su marcador, ver la direccion y completar el formulario de cobertura.</p>
-          </div>
-          <div class="city-chip-list">
-            <button type="button" class="office-chip" data-office-city="Santiago">Santiago</button>
-            <button type="button" class="office-chip" data-office-city="Talca">Talca</button>
-            <button type="button" class="office-chip" data-office-city="Chillán">Chillan</button>
-            <button type="button" class="office-chip" data-office-city="Concepción">Concepcion</button>
-            <button type="button" class="office-chip" data-office-city="Temuco">Temuco</button>
-            <button type="button" class="office-chip" data-office-city="Valdivia">Valdivia</button>
-            <button type="button" class="office-chip" data-office-city="Osorno">Osorno</button>
-            <button type="button" class="office-chip" data-office-city="Puerto Montt">Puerto Montt</button>
-          </div>
-        </div>
-      </div>
+    <section id="cobertura" class="coverage-page-layout corp-map-section anchor-section">
+      <?php
+      $mapVariant = 'full';
+      require __DIR__ . '/includes/interactive-map.php';
+      ?>
 
       <div class="coverage-grid">
         <article>
@@ -139,14 +50,16 @@
       </div>
     </section>
 
-    <section id="consulta-plan" class="application-section anchor-section">
-      <div class="section-title compact">
-        <span>Consulta de cobertura</span>
-        <h2>Déjanos tu teléfono y dirección de referencia</h2>
-        <p>Guardaremos tu consulta para revisar disponibilidad técnica según comuna y sector.</p>
+    <section id="consulta-plan" class="application-section corp-section anchor-section anim-section reveal-on-scroll">
+      <div class="corp-section-head">
+        <span class="eyebrow">Consulta de cobertura</span>
+        <h2>Solicita revisión de disponibilidad</h2>
+        <p>Registramos tu consulta para orientarte según comuna, sector y alternativas disponibles.</p>
       </div>
 
-      <form class="application-form" id="consulta-plan-form" action="consulta-plan.php" method="post">
+      <form class="application-form corp-form" id="consulta-plan-form" action="consulta-plan.php" method="post">
+        <?php require __DIR__ . '/includes/csrf-input.php'; ?>
+        <?php require __DIR__ . '/includes/honeypot-field.php'; ?>
         <div class="form-grid">
           <label>
             Nombre completo
@@ -160,7 +73,7 @@
 
           <label>
             Comuna o ciudad
-            <input type="text" name="comuna" autocomplete="address-level2" placeholder="Ej: Puerto Montt" required>
+            <input type="text" name="comuna" list="comunas-sur-list" autocomplete="address-level2" placeholder="Ej: Puerto Montt" required>
           </label>
 
           <label>
@@ -174,24 +87,22 @@
           <textarea name="mensaje" rows="4" placeholder="Escribe calle, sector o referencia para revisar factibilidad."></textarea>
         </label>
 
+        <?php require __DIR__ . '/includes/turnstile-field.php'; ?>
+
         <div class="form-actions">
-          <button type="submit" class="btn-primary">Solicitar revisión</button>
-          <a href="#" class="btn-outline dark-outline" data-whatsapp-message="Hola TelcoSur SPA, quiero consultar cobertura en mi dirección:">Consultar por WhatsApp</a>
+          <button type="submit" class="sl-btn-primary">Solicitar revisión</button>
+          <a href="#" class="sl-btn-outline contact-link" data-whatsapp-message="Hola TelcoSur SPA, quiero consultar cobertura en mi dirección:">Consultar por WhatsApp</a>
         </div>
+        <p class="corp-form-note">Tu consulta queda registrada para validación de cobertura antes de confirmar cualquier contratación.</p>
       </form>
+      <?php require __DIR__ . '/includes/corp-comunas-datalist.php'; ?>
     </section>
+
+    <?php
+    $ctaTitle = 'Consultas corporativas';
+    $ctaLead = 'Para otras consultas sobre TelcoSur, nuestros canales institucionales están disponibles.';
+    require __DIR__ . '/includes/corp-cta-band.php';
+    ?>
   </main>
 
-  <footer class="footer">
-    <p><strong>TelcoSur SPA</strong> - Servicios de telecomunicaciones para hogares y oportunidades comerciales</p>
-    <p>Atención personalizada • Todos los derechos reservados © 2026</p>
-  </footer>
-
-  <div class="mobile-action-bar" aria-label="Acciones rápidas móviles">
-    <a class="mobile-action-primary" href="planes.php#consulta-plan">Consultar plan</a>
-    <a href="#" class="mobile-action-whatsapp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida."><img src="assets/logo-whatsapp.jpeg" alt="" aria-hidden="true">WhatsApp</a>
-  </div>
-  <a href="#" class="floating-whatsapp" aria-label="Contactar a TelcoSur SPA por WhatsApp" data-whatsapp-message="Hola TelcoSur SPA, quisiera hacer una consulta rápida.">WhatsApp</a>
-  <script src="js/main.js"></script>
-</body>
-</html>
+<?php require __DIR__ . '/includes/layout-end.php'; ?>

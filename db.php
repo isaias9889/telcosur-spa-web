@@ -18,3 +18,5 @@ try {
     http_response_code(500);
     exit('No se pudo conectar a la base de datos.');
 }
+
+return $pdo;

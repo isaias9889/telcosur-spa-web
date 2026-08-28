@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin-login.php
+Disallow: /postulaciones.php
+Disallow: /consultas-planes.php
+Disallow: /exportar-postulaciones.php
+Disallow: /exportar-consultas.php
+Disallow: /ver-cv.php
+Disallow: /postular.php
+Disallow: /consulta-plan.php
+
+Sitemap: https://telcosurspa.cl/sitemap.xml

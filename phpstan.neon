@@ -1,0 +1,15 @@
+parameters:
+    level: 4
+    paths:
+        - security.php
+        - db.php
+        - includes/mailer.php
+        - includes/schema.php
+        - contacto-enviar.php
+        - consulta-plan.php
+        - postular.php
+    excludePaths:
+        - backups/*
+        - vendor/*
+        - node_modules/*
+    treatPhpDocTypesAsCertain: false

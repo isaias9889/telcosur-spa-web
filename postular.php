@@ -1,40 +1,91 @@
 <?php
-require __DIR__ . '/db.php';
+require __DIR__ . '/security.php';
+$pdo = require __DIR__ . '/db.php';
+
+securityHeaders();
+
+$cargosPermitidos = [
+    'Ejecutivo comercial',
+    'Ejecutivo comercial terreno',
+    'Supervisor en venta',
+];
+
+$experienciasPermitidas = [
+    'sin-experiencia',
+    'menos-1',
+    '1-3',
+    'mas-3',
+];
+
+$disponibilidadesPermitidas = [
+    'part-time',
+    'full-time',
+    'flexible',
+];
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: trabaja-con-nosotros.php#postulacion');
     exit;
 }
 
-$nombre = trim($_POST['nombre'] ?? '');
-$rut = trim($_POST['rut'] ?? '');
-$telefono = trim($_POST['telefono'] ?? '');
-$correo = trim($_POST['correo'] ?? '');
-$comuna = trim($_POST['comuna'] ?? '');
-$cargo = trim($_POST['cargo'] ?? 'Ejecutivo comercial');
-$experiencia = trim($_POST['experiencia'] ?? '');
-$disponibilidad = trim($_POST['disponibilidad'] ?? '');
-$mensaje = trim($_POST['mensaje'] ?? '');
+if (!csrfValidate($_POST['csrf_token'] ?? null)) {
+    header('Location: resultado.php?tipo=postulacion&estado=csrf');
+    exit;
+}
 
-if ($nombre === '' || $rut === '' || $telefono === '' || $correo === '' || $comuna === '' || $cargo === '' || $experiencia === '' || $disponibilidad === '') {
+if (!rateLimitAllow('postulacion', 3, 1800)) {
+    header('Location: resultado.php?tipo=postulacion&estado=limit');
+    exit;
+}
+
+if (honeypotDisparado()) {
+    header('Location: resultado.php?tipo=postulacion&estado=ok');
+    exit;
+}
+
+turnstileCheckOrRedirect('postulacion');
+
+$nombre = sanitizarTexto($_POST['nombre'] ?? '', 120);
+$rut = sanitizarTexto($_POST['rut'] ?? '', 20);
+$telefono = sanitizarTexto($_POST['telefono'] ?? '', 30);
+$correo = sanitizarTexto($_POST['correo'] ?? '', 120);
+$comuna = sanitizarTexto($_POST['comuna'] ?? '', 100);
+$cargo = sanitizarTexto($_POST['cargo'] ?? 'Ejecutivo comercial', 120);
+
+if ($cargo === '') {
+    $cargo = 'Ejecutivo comercial';
+}
+$experiencia = sanitizarTexto($_POST['experiencia'] ?? '', 80);
+$disponibilidad = sanitizarTexto($_POST['disponibilidad'] ?? '', 80);
+$mensaje = sanitizarTexto($_POST['mensaje'] ?? '', 2000);
+
+if (
+    $nombre === '' ||
+    $rut === '' ||
+    $telefono === '' ||
+    $correo === '' ||
+    $comuna === '' ||
+    $experiencia === '' ||
+    $disponibilidad === ''
+) {
     header('Location: resultado.php?tipo=postulacion&estado=error');
     exit;
 }
 
-$columnas = $pdo->query("SHOW COLUMNS FROM postulaciones")->fetchAll(PDO::FETCH_COLUMN);
-$columnasExistentes = array_flip($columnas);
-
-if (!isset($columnasExistentes['cargo'])) {
-    $pdo->exec("ALTER TABLE postulaciones ADD cargo VARCHAR(120) DEFAULT 'Ejecutivo comercial' AFTER disponibilidad");
+if (
+    !validarRutChile($rut) ||
+    !validarTelefonoChile($telefono) ||
+    !validarEmail($correo) ||
+    !valorPermitido($cargo, $cargosPermitidos) ||
+    !valorPermitido($experiencia, $experienciasPermitidas) ||
+    !valorPermitido($disponibilidad, $disponibilidadesPermitidas)
+) {
+    header('Location: resultado.php?tipo=postulacion&estado=error');
+    exit;
 }
 
-if (!isset($columnasExistentes['cv_archivo'])) {
-    $pdo->exec("ALTER TABLE postulaciones ADD cv_archivo VARCHAR(255) NULL AFTER cargo");
-}
-
-if (!isset($columnasExistentes['estado'])) {
-    $pdo->exec("ALTER TABLE postulaciones ADD estado VARCHAR(40) DEFAULT 'Recibida' AFTER cv_archivo");
-}
+require __DIR__ . '/includes/schema.php';
+ensurePostulacionesSchema($pdo);
 
 $cvArchivo = null;
 
@@ -85,6 +136,31 @@ $stmt->execute([
     ':estado' => 'Recibida',
     ':mensaje' => $mensaje,
 ]);
+
+require __DIR__ . '/includes/mailer.php';
+$adjuntosCorreo = [];
+if ($cvArchivo !== null) {
+    $adjuntosCorreo[] = __DIR__ . '/uploads/cv/' . $cvArchivo;
+}
+enviarNotificacion('Nueva postulación: ' . $cargo, [
+    'Nombre' => $nombre,
+    'RUT' => $rut,
+    'Teléfono' => $telefono,
+    'Correo' => $correo,
+    'Comuna' => $comuna,
+    'Cargo' => $cargo,
+    'Experiencia' => $experiencia,
+    'Disponibilidad' => $disponibilidad,
+    'Mensaje' => $mensaje,
+    'CV adjunto' => $cvArchivo ?? 'No adjuntó',
+], $correo, $nombre, $adjuntosCorreo);
+
+enviarConfirmacionUsuario(
+    $correo,
+    $nombre,
+    'Recibimos tu postulación — TelcoSur SPA',
+    'Gracias por postular al cargo de ' . $cargo . '. Revisaremos tu perfil y te contactaremos si calza con nuestras vacantes.'
+);
 
 header('Location: resultado.php?tipo=postulacion&estado=ok');
 exit;

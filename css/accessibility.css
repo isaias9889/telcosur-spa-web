@@ -1,0 +1,47 @@
+/* Accesibilidad — foco, skip link, contraste */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 12px;
+  z-index: 10000;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--color-heading);
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: var(--shadow-strong);
+}
+
+.skip-link:focus {
+  left: 12px;
+}
+
+.corp-site a:focus-visible,
+.corp-site button:focus-visible,
+.corp-site input:focus-visible,
+.corp-site textarea:focus-visible,
+.corp-site select:focus-visible {
+  outline: 3px solid rgba(196, 30, 58, 0.55);
+  outline-offset: 2px;
+}
+
+.corp-site .navbar a:focus-visible {
+  outline-offset: 4px;
+}
+
+.turnstile-field {
+  margin: 8px 0 4px;
+  min-height: 65px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .header.menu-open .navbar {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,30 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Archives / generated files
+*.zip
+*.rar
+*.7z
+
+# Local exports
+*.csv
+
+# Private candidate uploads
+uploads/cv/*
+!uploads/cv/.gitkeep
+
+# Editor folders
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Credentials (use *.example.php templates)
+admin-config.php
+db.php
+
+# Rate limit cache
+storage/rate-limit/*
+!storage/rate-limit/.gitkeep
