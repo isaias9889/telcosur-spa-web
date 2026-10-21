@@ -145,3 +145,7 @@ Cuando tengas SSL en el hosting, descomenta la redirección HTTPS en `.htaccess`
 - `db.php` (si tiene credenciales reales)
 - `uploads/cv/*`
 - `storage/rate-limit/*`
+
+## Herramientas
+
+- **[herramientas/diagnostico-pc](herramientas/diagnostico-pc/README.md)** — ejecutable para Windows que detecta antivirus y revisa la salud del PC.
