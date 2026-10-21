@@ -45,3 +45,8 @@ storage/rate-limit/*
 
 # Sistema de ingresos (proyecto aparte: telcosur-ingresos)
 ingresos/
+
+# Diagnóstico de PC (reportes y build local)
+herramientas/diagnostico-pc/reporte-diagnostico-*.html
+herramientas/diagnostico-pc/build/
+herramientas/diagnostico-pc/*.spec
