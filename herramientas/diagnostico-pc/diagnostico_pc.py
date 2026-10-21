@@ -149,14 +149,19 @@ def revisar_antivirus_windows(rep: Reporte, escanear: bool):
         "Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiVirusProduct "
         "| Select-Object displayName, productState, pathToSignedProductExe"
     )
-    if productos is None:
-        rep.agregar("Antivirus", "Centro de seguridad", ADVERTENCIA,
-                    "No se pudo consultar el Centro de seguridad de Windows.")
-    elif not productos:
+    defender = powershell(
+        "Get-MpComputerStatus | Select-Object AMServiceEnabled, AntivirusEnabled, "
+        "RealTimeProtectionEnabled, AntivirusSignatureAge, QuickScanAge"
+    )
+    defender_activo = bool(defender and defender[0].get("AntivirusEnabled")
+                           and defender[0].get("RealTimeProtectionEnabled"))
+
+    if not productos and not defender_activo:
+        # Windows Server no tiene Centro de seguridad, así que la lista vacía no basta para concluir.
         rep.agregar("Antivirus", "Antivirus instalado", PROBLEMA,
-                    "Windows no reporta ningún antivirus registrado.",
+                    "No se detectó ningún antivirus con protección activa.",
                     "Activa Microsoft Defender o instala un antivirus confiable.")
-    else:
+    elif productos:
         algun_activo = False
         for p in productos:
             nombre = p.get("displayName") or "Desconocido"
@@ -173,15 +178,11 @@ def revisar_antivirus_windows(rep: Reporte, escanear: bool):
                             "Actualiza las definiciones de virus.")
             else:
                 rep.agregar("Antivirus", nombre, INFO, "Instalado pero no es el antivirus activo.")
-        if not algun_activo:
+        if not algun_activo and not defender_activo:
             rep.agregar("Antivirus", "Protección activa", PROBLEMA,
                         "Hay antivirus instalados, pero ninguno está activo.",
                         "Activa la protección en tiempo real.")
 
-    defender = powershell(
-        "Get-MpComputerStatus | Select-Object AMServiceEnabled, AntivirusEnabled, "
-        "RealTimeProtectionEnabled, AntivirusSignatureAge, QuickScanAge"
-    )
     if defender:
         d = defender[0]
         if d.get("AntivirusEnabled") and d.get("RealTimeProtectionEnabled"):
